@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du Hinner! – Ta makten över din tid</title>
+  <meta name="description" content="Du har mer tid än du tror. Jonas Hjalmar Blom – psykolog, forskare och föreläsare – om hur vi uppfattar, använder och värderar vår tid." />
+  <meta property="og:title" content="Du Hinner! – Ta makten över din tid" />
+  <meta property="og:description" content="Du har mer tid än du tror. En bok och föreläsning av Jonas Hjalmar Blom." />
+  <meta property="og:image" content="https://duhinner.se/images/du-hinner.jpg" />
+  <meta property="og:url" content="https://duhinner.se" />
+  <link rel="canonical" href="https://duhinner.se" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================
+       VARIABLER & RESET
+       Färger hämtade från bokomslaget:
+       --mint   = bakgrundens ljusgröna
+       --orange = timglasets orange-röda
+       --navy   = bokens mörka textfärg
+    ===================================================== */
+    :root {
+      --mint:        #E0EDCC;
+      --mint-dark:   #cde0b4;
+      --orange:      #E8481E;
+      --orange-glow: rgba(232, 72, 30, 0.20);
+      --navy:        #1C1F4C;
+      --navy-soft:   #2a2e5e;
+      --white:       #ffffff;
+      --cream:       #FAFAF8;
+      --text:        #1C1F4C;
+      --text-muted:  #5a5d7a;
+      --max-w:       1080px;
+      --r:           10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(var(--max-w), 100% - 2.5rem);
+      margin-inline: auto;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Knappar ─────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-orange {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 4px 18px var(--orange-glow);
+    }
+    .btn-orange:hover { box-shadow: 0 8px 28px var(--orange-glow); }
+
+    .btn-navy {
+      background: var(--navy);
+      color: #fff;
+    }
+    .btn-navy:hover { box-shadow: 0 8px 24px rgba(28,31,76,0.25); }
+
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+    .btn-outline-navy:hover { background: var(--navy); color: #fff; }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.12); }
+
+    .btn-mint {
+      background: var(--mint);
+      color: var(--navy);
+    }
+    .btn-mint:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+    .btn-white {
+      background: #fff;
+      color: var(--orange);
+      font-weight: 700;
+    }
+    .btn-white:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      background: var(--navy);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      padding-inline: 1.5rem;
+      max-width: var(--max-w);
+      margin-inline: auto;
+    }
+
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo em { color: var(--orange); font-style: normal; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      min-height: 100svh;
+      background: var(--mint);
+      display: flex;
+      align-items: center;
+      padding-top: 58px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dekorativ timglasform i bakgrunden */
+    #hero::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 520px; height: 520px;
+      background: var(--orange);
+      opacity: 0.08;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Diagonal övergång till nästa sektion */
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 70px;
+      background: var(--cream);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    }
+
+    .hero-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-block: 5rem 7rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 10vw, 7.5rem);
+      line-height: 0.95;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .hero-title .orange { color: var(--orange); }
+
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--navy);
+      font-weight: 500;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-book {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .hero-book img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 4px;
+      box-shadow: 0 24px 64px rgba(28,31,76,0.22);
+      transform: rotate(2.5deg);
+      transition: transform .4s;
+    }
+    .hero-book img:hover { transform: rotate(0deg) scale(1.03); }
+
+    /* =====================================================
+       OM MIG
+    ===================================================== */
+    #om-mig {
+      background: var(--mint);
+      padding-block: 6rem;
+    }
+
+    .om-mig-inner {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .om-mig-bird {
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .om-mig-bird img {
+      width: 100%;
+      display: block;
+      border-radius: var(--r);
+    }
+
+    .om-mig-foto {
+      width: 400px; height: 480px;
+      background: var(--mint-dark);
+      border-radius: var(--r);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .om-mig-foto img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* PLACEHOLDER: ersätt med riktig bild */
+    .foto-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .om-mig-text h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1.25rem; }
+    .om-mig-text p { color: var(--text-muted); margin-bottom: 1rem; }
+    .om-mig-text p:last-of-type { margin-bottom: 1.75rem; }
+
+    /* =====================================================
+       BOKEN
+    ===================================================== */
+    #boken {
+      background: var(--cream);
+      padding-block: 6rem;
+      position: relative;
+    }
+
+    #boken::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 60px;
+      background: var(--mint);
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+    }
+
+    .boken-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .boken-recensioner {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .boken-knappar-rad {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .boken-text h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 1.25rem; }
+    .boken-text p { margin-bottom: 1rem; }
+    .boken-text p:last-of-type { margin-bottom: 0; }
+
+    /* Recensioner */
+    .recensioner {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .recension {
+      background: rgba(255,255,255,0.65);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .recension blockquote {
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    .recension cite {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-style: normal;
+    }
+
+    /* Köpknappar */
+    .kop-knappar {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .kop-knappar .kop-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+    }
+
+    /* =====================================================
+       FÖRELÄSNING
+    ===================================================== */
+    #forelasning {
+      background: var(--navy);
+      padding-block: 6rem;
+      position: relative;
+    }
+
+    #forelasning::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 0; right: 0;
+      height: 60px;
+      background: var(--mint);
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    #forelasning::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 60px;
+      background: var(--mint);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    .forelasning-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    #forelasning .label { color: var(--orange); }
+
+    #forelasning h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 1.25rem;
+    }
+
+    #forelasning p { color: rgba(255,255,255,0.8); margin-bottom: 1rem; }
+    #forelasning p:last-of-type { margin-bottom: 2rem; }
+
+    .forelasning-kort {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r);
+      padding: 2rem;
+    }
+
+    .forelasning-punkt {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+    .forelasning-punkt:last-child { margin-bottom: 0; }
+
+    .punkt-dot {
+      flex-shrink: 0;
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+
+    /* =====================================================
+       KONTAKT
+    ===================================================== */
+    #kontakt {
+      background: var(--mint) url('images/duhinner-sun.jpg') center 140% / cover no-repeat;
+      padding-block: 6rem 26vw;
+    }
+
+    .kontakt-inner {
+      max-width: 620px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .kontakt-inner h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.75rem; }
+    .kontakt-inner > p { color: var(--text-muted); margin-bottom: 2.5rem; }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--navy);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid #e0e0e8;
+      border-radius: var(--r);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit { margin-top: 0.5rem; width: 100%; padding: 1rem; font-size: 1.05rem; }
+
+    /* =====================================================
+       ILLUSTRATIONSBAND
+    ===================================================== */
+    .illus-band {
+      background: var(--mint);
+      line-height: 0;
+    }
+    .illus-band img {
+      width: 100%;
+      display: block;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      padding-block: 2.5rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .footer-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .footer-logo em { color: var(--orange); font-style: normal; }
+
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); transition: color .2s; }
+    .footer-links a:hover { color: var(--orange); }
+
+    /* =====================================================
+       RESPONSIV
+    ===================================================== */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 58px; left: 0; right: 0;
+        background: var(--navy);
+        padding: 1.25rem 1.5rem;
+        gap: 1.1rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-block: 3.5rem 6rem;
+      }
+      .hero-sub { margin-inline: auto; }
+      .hero-btns { justify-content: center; }
+      .hero-book { display: flex; justify-content: center; }
+      .hero-book img { transform: none; width: min(360px, 80vw); }
+
+      .om-mig-inner {
+        grid-template-columns: 1fr;
+      }
+      .om-mig-foto { width: 100%; height: 220px; }
+      .om-mig-bird { display: none; }
+
+      .boken-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .forelasning-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       NAVIGATION
+  ================================================= -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Du Hinner!</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#boken">Boken</a></li>
+        <li><a href="#om-mig">Författaren</a></li>
+        <li><a href="#forelasning">Föreläsningar</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <button class="nav-burger" id="nav-burger" aria-label="Öppna meny">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ================================================
+       HERO
+  ================================================= -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-book">
+          <img src="images/du-hinner.jpg" alt="Bokomslag: Du Hinner! Ta makten över din tid av Jonas Hjalmar Blom" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       BOKEN
+  ================================================= -->
+  <section id="boken">
+    <div class="wrap">
+      <div class="boken-inner">
+
+        <div class="boken-text">
+          <h2>Ta makten över din tid</h2>
+
+          <p>
+            Har du tid att göra det du vill, eller känns det som om timmarna bara rinner i väg?
+            I en värld där vi ständigt försöker hinna med allt är tidsbrist en känsla som följer oss dagligen.
+            Trots att vi har mer ledig tid än någonsin upplever de flesta av oss att tiden aldrig riktigt räcker till.
+          </p>
+          <p>
+            Hur uppfattar, använder och värderar vi vår tid? Genom att sammanfläta insikter från
+            neurovetenskap, psykologi, ekonomi och antropologi bidrar Jonas Hjalmar Blom med
+            en djupare förståelse för hur naturen och kulturen tillsammans formar vår tidsupplevelse –
+            och hur du kan ta makten över den, och ditt liv.
+          </p>
+          <p>
+            Lär dig att undvika tidsfällor som multitasking, tidsoptimism, time&nbsp;management och
+            att sätta ett pris på varje minut. Först då kan du skapa balans mellan produktivitet
+            och vila – och framför allt fylla din tid med både glädje och mening.
+          </p>
+          <p><em>Det här är en bok för alla som någon gång tänkt tanken "jag hinner inte".</em></p>
+        </div>
+
+        <div class="boken-recensioner">
+          <div class="recensioner">
+            <div class="recension">
+              <blockquote>
+                "Det är en sådan bok som får en att stanna upp och fundera över vad man egentligen
+                gör med den tid som utgör ens liv. Efter att jag läst ut boken märker jag att jag
+                fått en skärpt blick för vardagens oväsentligheter och måsten som så lätt ställer
+                sig i vägen för det jag tycker är viktigt och värdefullt."
+              </blockquote>
+              <cite>Forskning &amp; Framsteg</cite>
+            </div>
+            <div class="recension">
+              <blockquote>
+                "Det är en lättillgänglig bok som är underhållande och med exempel som är lätta att ta till sig."
+              </blockquote>
+              <cite>BTJ &nbsp;·&nbsp; Betyg 4/5</cite>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Köpknappar – full bredd under texten och recensionerna -->
+      <div class="boken-knappar-rad">
+        <div class="kop-knappar">
+          <span class="kop-label">Köp boken:</span>
+          <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="btn btn-orange" target="_blank" rel="noopener">Bokus</a>
+          <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="btn btn-navy" target="_blank" rel="noopener">Adlibris</a>
+          <a href="https://www.akademibokhandeln.se/bok/du-hinner-ta-makten-over-din-tid/9789180067096" class="btn btn-mint" target="_blank" rel="noopener">Akademibokhandeln</a>
+        </div>
+        <div class="kop-knappar">
+          <span class="kop-label">Lyssna:</span>
+          <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="btn btn-mint" target="_blank" rel="noopener">Bookbeat</a>
+          <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-över-din-tid-9557812" class="btn btn-orange" target="_blank" rel="noopener">Storytel</a>
+          <a href="https://nextory.com/se/book/du-hinner-ta-makten-over-din-tid-4388484" class="btn btn-navy" target="_blank" rel="noopener">Nextory</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       OM MIG
+  ================================================= -->
+  <section id="om-mig">
+    <div class="wrap">
+      <div class="om-mig-inner">
+
+        <div class="om-mig-foto">
+          <img src="images/jonas.jpg" alt="Jonas Hjalmar Blom" />
+        </div>
+
+        <div class="om-mig-text">
+          <h2>Jonas Hjalmar Blom</h2>
+          <p>
+            Jonas Hjalmar Blom är leg. psykolog, doktorand i psykologi och föreläsare med
+            intresse för hur vi förhåller oss till tid – och varför vi så sällan känner att
+            den räcker till.
+          </p>
+          <p>
+            Genom forskning, böcker och föreläsningar hjälper han individer och organisationer
+            att förstå sin tidsupplevelse, tidskultur och att skapa mer meningsfulla sätt att
+            leva och arbeta.
+          </p>
+          <a href="https://jonashjalmarblom.se" class="btn btn-navy" target="_blank" rel="noopener">
+            Mer om Jonas →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FÖRELÄSNING
+  ================================================= -->
+  <section id="forelasning">
+    <div class="wrap">
+      <div class="forelasning-inner">
+
+        <div>
+          <h2>Föreläsningar</h2>
+          <p>
+            Vill du att dina kollegor och medarbetare ska få en ny syn på tidsbrist, få syn på
+            er tidskultur eller förstå vad det innebär att "ta sig tid"?
+            <br><br>
+            Jonas håller föreläsningar för företag, myndigheter och bibliotek – alltid forskningsbaserade, alltid engagerande.
+          </p>
+          <a href="#kontakt" class="btn btn-orange">Kontakta Jonas</a>
+        </div>
+
+        <div class="forelasning-kort">
+          <div class="forelasning-punkt">
+            <span class="punkt-dot"></span>
+            <span>Varför vi upplever tidsbrist trots att vi aldrig haft mer ledig tid</span>
+          </div>
+          <div class="forelasning-punkt">
+            <span class="punkt-dot"></span>
+            <span>Tidsfällor vi alla går i – och hur vi tar oss ur dem</span>
+          </div>
+          <div class="forelasning-punkt">
+            <span class="punkt-dot"></span>
+            <span>Konkreta kunskaper att använda direkt efter föreläsningen</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       KONTAKT
+  ================================================= -->
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="kontakt-inner">
+        <h2>Kontakt</h2>
+        <p>Vill du boka en föreläsning, ställa en fråga eller bara säga hej?</p>
+
+        <!-- PLACEHOLDER: ersätt YOUR_FORM_ID med ditt Formspree-ID -->
+        <form action="https://formspree.io/f/xzdkypwp" method="POST">
+
+          <div class="form-group">
+            <label for="namn">Namn</label>
+            <input type="text" id="namn" name="namn" placeholder="Ditt namn" required />
+          </div>
+
+          <div class="form-group">
+            <label for="epost">E-post</label>
+            <input type="email" id="epost" name="epost" placeholder="din@epost.se" required />
+          </div>
+
+          <div class="form-group">
+            <label for="amne">Ärende</label>
+            <select id="amne" name="amne">
+              <option value="">Välj ärende…</option>
+              <option value="forelasning">Boka föreläsning</option>
+              <option value="boken">Fråga om boken</option>
+              <option value="media">Media / intervju</option>
+              <option value="annat">Annat</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="meddelande">Meddelande</label>
+            <textarea id="meddelande" name="meddelande" placeholder="Berätta gärna mer…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-orange form-submit">Skicka meddelande</button>
+
+        </form>
+        <!-- /PLACEHOLDER -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================= -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <span class="footer-logo">Du Hinner!</span>
+        <ul class="footer-links">
+          <li><a href="#boken">Boken</a></li>
+          <li><a href="#om-mig">Författaren</a></li>
+          <li><a href="#forelasning">Föreläsningar</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="referenser/">Referenser</a></li>
+          <li><a href="https://jonashjalmarblom.se" target="_blank" rel="noopener">jonashjalmarblom.se</a></li>
+        </ul>
+        <span>&copy; <span id="year"></span> Jonas Hjalmar Blom</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hamburgermeny
+    const burger = document.getElementById('nav-burger');
+    const navLinks = document.getElementById('nav-links');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+  </script>
+
+</body>
+</html>

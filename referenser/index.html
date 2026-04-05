@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du Hinner! – Referenser</title>
+  <meta name="description" content="Källförteckning och referenser till boken Du Hinner! Ta makten över din tid av Jonas Hjalmar Blom." />
+  <link rel="canonical" href="https://duhinner.se/referenser/" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    body { padding-top: 60px; }
+
+    .ref-hero {
+      background: var(--mint);
+      padding-block: 4rem 3rem;
+    }
+
+    .ref-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .ref-hero p {
+      font-size: 1.1rem;
+      color: var(--navy);
+      opacity: 0.75;
+    }
+
+    .ref-content {
+      background: var(--cream);
+      padding-block: 4rem 6rem;
+    }
+
+    .ref-intro {
+      max-width: 680px;
+      margin-bottom: 3rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    .ref-chapter {
+      margin-bottom: 3rem;
+    }
+
+    .ref-chapter h2 {
+      font-size: 1.4rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--mint);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .ref-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .ref-list li {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding-left: 1.25rem;
+      border-left: 3px solid var(--mint);
+      color: var(--text);
+    }
+
+    .ref-list li a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-list li a:hover { color: var(--navy); }
+
+    .ref-placeholder {
+      background: var(--mint);
+      border-radius: var(--radius);
+      padding: 3rem;
+      text-align: center;
+      font-style: italic;
+      color: #666;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      color: var(--orange);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    .back-link:hover { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Du <span>Hinner!</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#om-boken">Om boken</a></li>
+        <li><a href="/#elearning">E-learning</a></li>
+        <li><a href="/#video">Videoföreläsningar</a></li>
+        <li><a href="/referenser/">Referenser</a></li>
+      </ul>
+      <button class="nav-burger" id="nav-burger" aria-label="Öppna meny">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <div class="ref-hero">
+    <div class="container">
+      <p class="section-label">Du Hinner!</p>
+      <h1>Referenser</h1>
+      <p>Källförteckning till <em>Du Hinner! Ta makten över din tid</em></p>
+    </div>
+  </div>
+
+  <!-- ── Innehåll ───────────────────────────────────────── -->
+  <section class="ref-content">
+    <div class="container">
+
+      <a href="/" class="back-link">← Tillbaka till startsidan</a>
+
+      <p class="ref-intro">
+        Nedan listas de källor och studier som boken hänvisar till,
+        organiserade per kapitel. Klicka på en länk för att läsa originalkällan.
+      </p>
+
+      <!-- ── Platshållare – ersätts med faktiska referenser ── -->
+      <div class="ref-placeholder">
+        <p>Referenslistan publiceras här inom kort.</p>
+      </div>
+
+      <!--
+        Mall för att lägga till kapitelreferenser:
+
+        <div class="ref-chapter">
+          <h2>Kapitel 1 – Varför vi alltid känner oss stressade</h2>
+          <ul class="ref-list">
+            <li>
+              Efternamn, F. (år). <em>Titel på artikel eller bok</em>.
+              Tidskrift, <em>volym</em>(nummer), sidor.
+              <a href="https://doi.org/..." target="_blank" rel="noopener">doi:...</a>
+            </li>
+          </ul>
+        </div>
+      -->
+
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">Du <span>Hinner!</span></span>
+        <ul class="footer-links">
+          <li><a href="/#om-boken">Om boken</a></li>
+          <li><a href="/#elearning">E-learning</a></li>
+          <li><a href="/#video">Video</a></li>
+          <li><a href="/referenser/">Referenser</a></li>
+          <li><a href="https://jonashjalmarblom.se">jonashjalmarblom.se</a></li>
+        </ul>
+        <span class="footer-copy">&copy; <span id="year"></span> Jonas Hjalmar Blom</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const burger = document.getElementById('nav-burger');
+    const navLinks = document.getElementById('nav-links');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+  </script>
+
+</body>
+</html>
