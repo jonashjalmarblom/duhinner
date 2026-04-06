@@ -4,185 +4,1416 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Du Hinner! – Referenser</title>
-  <meta name="description" content="Källförteckning och referenser till boken Du Hinner! Ta makten över din tid av Jonas Hjalmar Blom." />
+  <meta name="description" content="Källförteckning till Du Hinner! Ta makten över din tid av Jonas Hjalmar Blom." />
   <link rel="canonical" href="https://duhinner.se/referenser/" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body { padding-top: 60px; }
+    :root {
+      --mint:   #E0EDCC;
+      --orange: #E8481E;
+      --navy:   #1C1F4C;
+      --cream:  #FAFAF8;
+      --text:   #1C1F4C;
+      --muted:  #5a5d7a;
+      --max-w:  780px;
+      --r:      8px;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--navy); }
+
+    .wrap {
+      width: min(var(--max-w), 100% - 2.5rem);
+      margin-inline: auto;
+    }
+
+    /* Nav */
+    nav {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      padding-inline: 1.5rem;
+      max-width: 1080px;
+      margin-inline: auto;
+    }
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo em { color: var(--orange); font-style: normal; }
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--orange); }
+
+    /* Hero */
     .ref-hero {
       background: var(--mint);
-      padding-block: 4rem 3rem;
+      padding-block: 4rem 3.5rem;
     }
+    .ref-hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.5rem; }
+    .ref-hero p { color: var(--muted); font-size: 1rem; }
 
-    .ref-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 0.5rem;
-    }
-
-    .ref-hero p {
-      font-size: 1.1rem;
-      color: var(--navy);
-      opacity: 0.75;
-    }
-
-    .ref-content {
-      background: var(--cream);
-      padding-block: 4rem 6rem;
-    }
+    /* Content */
+    .ref-content { padding-block: 4rem 6rem; }
 
     .ref-intro {
-      max-width: 680px;
-      margin-bottom: 3rem;
       font-style: italic;
-      color: #666;
-    }
-
-    .ref-chapter {
+      color: var(--muted);
       margin-bottom: 3rem;
-    }
-
-    .ref-chapter h2 {
-      font-size: 1.4rem;
-      color: var(--navy);
+      padding-bottom: 2rem;
       border-bottom: 2px solid var(--mint);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
     }
 
-    .ref-list {
+    /* Kapitel – accordion */
+    .kapitel {
+      margin-bottom: 0.75rem;
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    .kapitel summary {
       list-style: none;
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--mint);
+      padding: 0.7rem 1rem 0.7rem 1.1rem;
+      border-radius: var(--r);
+      user-select: none;
+      transition: background .15s;
+    }
+    .kapitel summary::-webkit-details-marker { display: none; }
+    .kapitel summary:hover { background: #d0e3b5; }
+
+    .kapitel-rubrik {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--navy);
+      letter-spacing: 0.02em;
     }
 
-    .ref-list li {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-left: 1.25rem;
+    .kapitel-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--navy);
+      transition: transform .25s ease;
+    }
+    .kapitel[open] .kapitel-chevron { transform: rotate(180deg); }
+
+    .kapitel-body {
+      padding: 1.5rem 0 1rem;
+    }
+
+    /* Enskild referens */
+    .ref {
       border-left: 3px solid var(--mint);
+      padding: 0.75rem 0 0.75rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .ref:last-child { margin-bottom: 0; }
+
+    .ref-text {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .ref-cite {
+      font-size: 0.92rem;
+      line-height: 1.65;
       color: var(--text);
     }
 
-    .ref-list li a {
-      color: var(--orange);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .ref-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+      line-height: 1.6;
     }
 
-    .ref-list li a:hover { color: var(--navy); }
-
-    .ref-placeholder {
-      background: var(--mint);
-      border-radius: var(--radius);
-      padding: 3rem;
-      text-align: center;
-      font-style: italic;
-      color: #666;
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      padding-block: 2.5rem;
     }
-
-    .back-link {
-      display: inline-flex;
+    .footer-inner {
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      color: var(--orange);
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 1080px;
+      margin-inline: auto;
+      padding-inline: 1.5rem;
     }
-
-    .back-link:hover { color: var(--navy); }
+    .footer-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      color: #fff;
+    }
+    .footer-logo em { color: var(--orange); font-style: normal; }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--orange); }
   </style>
 </head>
 <body>
 
-  <!-- ── Navigation ─────────────────────────────────────── -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">Du <span>Hinner!</span></a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="/#om-boken">Om boken</a></li>
-        <li><a href="/#elearning">E-learning</a></li>
-        <li><a href="/#video">Videoföreläsningar</a></li>
-        <li><a href="/referenser/">Referenser</a></li>
-      </ul>
-      <button class="nav-burger" id="nav-burger" aria-label="Öppna meny">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ── Hero ───────────────────────────────────────────── -->
-  <div class="ref-hero">
-    <div class="container">
-      <p class="section-label">Du Hinner!</p>
-      <h1>Referenser</h1>
-      <p>Källförteckning till <em>Du Hinner! Ta makten över din tid</em></p>
-    </div>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Du <em>Hinner!</em></a>
+    <a href="/" class="nav-back">← Tillbaka till startsidan</a>
   </div>
+</nav>
 
-  <!-- ── Innehåll ───────────────────────────────────────── -->
-  <section class="ref-content">
-    <div class="container">
+<div class="ref-hero">
+  <div class="wrap">
+    <h1>Källor &amp; referenser</h1>
+    <p>Källförteckning till <em>Du Hinner! Ta makten över din tid</em> av Jonas Hjalmar Blom</p>
+  </div>
+</div>
 
-      <a href="/" class="back-link">← Tillbaka till startsidan</a>
+<section class="ref-content">
+  <div class="wrap">
 
-      <p class="ref-intro">
-        Nedan listas de källor och studier som boken hänvisar till,
-        organiserade per kapitel. Klicka på en länk för att läsa originalkällan.
-      </p>
+    <p class="ref-intro">
+      Nedan listas de källor som boken hänvisar till, organiserade per kapitel.
+      Varje referens föregås av det påstående i boken som den stöder.
+    </p>
 
-      <!-- ── Platshållare – ersätts med faktiska referenser ── -->
-      <div class="ref-placeholder">
-        <p>Referenslistan publiceras här inom kort.</p>
+
+    <!-- ── HAR DU TID? ─────────────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Har du tid?</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Ändå lider de flesta av oss av brist på tid</p>
+        <p class="ref-cite">SCB (2022) <em>En fråga om tid (TID2021) – En studie av tidsanvändningen bland kvinnor och män 2021.</em> Statistiska Centralbyrån.</p>
       </div>
 
-      <!--
-        Mall för att lägga till kapitelreferenser:
-
-        <div class="ref-chapter">
-          <h2>Kapitel 1 – Varför vi alltid känner oss stressade</h2>
-          <ul class="ref-list">
-            <li>
-              Efternamn, F. (år). <em>Titel på artikel eller bok</em>.
-              Tidskrift, <em>volym</em>(nummer), sidor.
-              <a href="https://doi.org/..." target="_blank" rel="noopener">doi:...</a>
-            </li>
-          </ul>
-        </div>
-      -->
-
-    </div>
-  </section>
-
-  <!-- ── Footer ──────────────────────────────────────────── -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">Du <span>Hinner!</span></span>
-        <ul class="footer-links">
-          <li><a href="/#om-boken">Om boken</a></li>
-          <li><a href="/#elearning">E-learning</a></li>
-          <li><a href="/#video">Video</a></li>
-          <li><a href="/referenser/">Referenser</a></li>
-          <li><a href="https://jonashjalmarblom.se">jonashjalmarblom.se</a></li>
-        </ul>
-        <span class="footer-copy">&copy; <span id="year"></span> Jonas Hjalmar Blom</span>
+      <div class="ref">
+        <p class="ref-text">Vid förra sekelskiftet…</p>
+        <p class="ref-cite">Our World In Data (2023) Annual working hours per worker. <a href="https://ourworldindata.org/grapher/annual-working-hours-per-worker" target="_blank" rel="noopener">ourworldindata.org</a></p>
       </div>
-    </div>
-  </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const burger = document.getElementById('nav-burger');
-    const navLinks = document.getElementById('nav-links');
-    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => navLinks.classList.remove('open'))
-    );
-  </script>
+      <div class="ref">
+        <p class="ref-text">… de är en urförutsättning för själva livet</p>
+        <p class="ref-cite">Gibbon, J., Malapani, C., Dale, C. L., &amp; Gallistel, C. R. (1997). Toward a neurobiology of temporal cognition: advances and challenges. <em>Current opinion in neurobiology, 7</em>(2).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── ETT: DIN INRE TIDSMÄSTARE ──────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Ett: Din inre tidsmästare</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Förändringar i ljus, temperatur och tillgång till föda</p>
+        <p class="ref-cite">Åkesson, S., &amp; Helm, B. (2020). Endogenous programs and flexibility in bird migration. <em>Frontiers in Ecology and Evolution, 8</em>, 78.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Encelliga cyanobakterier</p>
+        <p class="ref-cite">Johnson, C. H., Mori, T., &amp; Xu, Y. (2008). A cyanobacterial circadian clockwork. <em>Current Biology, 18</em>(17).<br>
+        Woelfle, M. A., Ouyang, Y., Phanvijhitsiri, K., &amp; Johnson, C. H. (2004). The adaptive value of circadian clocks: an experimental assessment in cyanobacteria. <em>Current Biology, 14</em>(16).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Suprachiasmatiska kärnan</p>
+        <p class="ref-cite">Cajochen, C., &amp; Schmidt, C. (2025). The Circadian Brain and Cognition. <em>Annual Review of Psychology, 76</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När du föddes hade din kropp redan fått känna på naturens cykler</p>
+        <p class="ref-cite">Rivkees, S. A. (2007). The development of circadian rhythms: from animals to humans. <em>Sleep medicine clinics, 2</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Den cirkadiska rytmen har finjusterats</p>
+        <p class="ref-cite">Hastings, M. H., Maywood, E. S., &amp; Brancaccio, M. (2019). The mammalian circadian timing system and the suprachiasmatic nucleus as its pacemaker. <em>Biology, 8</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Präglad av tidens kärnvapenhot och rymdkapplöpning</p>
+        <p class="ref-cite">Foer, J. (2008). Caveman: an interview with Michel Siffre. <em>Cabinet Magazine, 30</em>.<br>
+        Kleitman, N. (1939). <em>Sleep and Wakefulness as Alternating Phases in the Cycle of Existence.</em> University of Chicago Press.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Beatriz Flamini stannade i femhundra dagar</p>
+        <p class="ref-cite">Jones, S. (2023, april). Spanish woman emerges after spending 500 days living alone in cave. <em>The Guardian.</em></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vi har olika kronotyp</p>
+        <p class="ref-cite">Roenneberg, T., Kuehnle, T., Juda, M., Kantermann, T., Allebrandt, K., Gordijn, M., &amp; Merrow, M. (2007). Epidemiology of the human circadian clock. <em>Sleep medicine reviews, 11</em>(6).<br>
+        Adan, A., Archer, S. N., Hidalgo, M. P., Di Milia, L., Natale, V., &amp; Randler, C. (2012). Circadian typology: a comprehensive review. <em>Chronobiology international, 29</em>(9).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Kvällsmänniskor har högre risk för en rad sjukdomar medan morgonmänniskor har fördelar</p>
+        <p class="ref-cite">Vitale, J. A., &amp; Weydahl, A. (2017). Chronotype, physical activity, and sport performance: a systematic review. <em>Sports medicine, 47</em>.<br>
+        Zerbini, G., &amp; Merrow, M. (2017). Time to learn: How chronotype impacts education. <em>PsyCh journal, 6</em>(4).<br>
+        Preckel, F., Lipnevich, A. A., Schneider, S., &amp; Roberts, R. D. (2011). Chronotype, cognitive abilities, and academic achievement: A meta-analytic investigation. <em>Learning and Individual Differences, 21</em>(5).<br>
+        Alachkar, A., et al. (2022). The hidden link between circadian entropy and mental health disorders. <em>Translational psychiatry, 12</em>(1).<br>
+        Correa, A., et al. (2017). Economic decision-making in morning/evening-type people as a function of time of day. <em>Chronobiology international, 34</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En kvällsmänniska som gör mentalt krävande uppgifter tidigt på morgonen</p>
+        <p class="ref-cite">May, C. P., Hasher, L., &amp; Healey, K. (2023). For Whom (and When) the Time Bell Tolls: Chronotypes and the Synchrony Effect. <em>Perspectives on Psychological Science, 18</em>(6).<br>
+        Rey-Mermet, A., &amp; Rothen, N. (2023). The Interplay of Time-of-day and Chronotype Results in No General and Robust Cognitive Boost. <em>Collabra: Psychology, 9</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Testa dig fram till din kronotyp</p>
+        <p class="ref-cite"><a href="https://chronotype-self-test.info/" target="_blank" rel="noopener">chronotype-self-test.info</a></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Thomas Alva Edison skrev i sin dagbok</p>
+        <p class="ref-cite">Edison, T. A. (1968). <em>The Diary and sundry observations of Thomas Alva Edison</em> (s. 178). New York: Greenwood Press.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">De flesta somnade när solen gick ner och vaknade runt midnatt</p>
+        <p class="ref-cite">Ekirch, A. R. (2016). Segmented sleep in preindustrial societies. <em>Sleep, 39</em>(3).<br>
+        Johannisson, K. (2009). <em>Melankoliska rum. Om ångest, leda och sårbarhet i förfluten tid och nutid.</em> Albert Bonniers Förlag.<br>
+        De Cervantes, M. (1615). <em>Don Quixote</em>, del 2, kapitel 68.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vid denna tid i historien var människokroppen mer påverkad av naturliga rytmer än idag</p>
+        <p class="ref-cite">Foster, R. G., &amp; Roenneberg, T. (2008). Human responses to the geophysical daily, annual and lunar cycles. <em>Current biology, 18</em>(17).<br>
+        Helfrich-Förster, C., et al. (2021). Women temporarily synchronize their menstrual cycles with the luminance and gravimetric cycles of the Moon. <em>Science Advances, 7</em>(5).<br>
+        Ecochard, R., et al. (2024). Evidence that the woman's ovarian cycle is driven by an internal circamonthly timing system. <em>Science Advances, 10</em>(15).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Idag är åttio procent av mänskligheten drabbade av ljusföroreningar</p>
+        <p class="ref-cite">Falchi, F., et al. (2016). The new world atlas of artificial night sky brightness. <em>Science advances, 2</em>(6).<br>
+        Sharma, A., Tiwari, S., &amp; Singaravel, M. (2016). Circadian rhythm disruption: health consequences. <em>Biological rhythm research, 47</em>(2).<br>
+        Cupertino, M. D. C., et al. (2023). Light Pollution: a systematic review about the impacts of artificial light on human health. <em>Biological Rhythm Research, 54</em>(3).<br>
+        Walker, W. H., et al. (2020). Circadian rhythm disruption and mental health. <em>Translational psychiatry, 10</em>(1).<br>
+        Lucassen, E. A., et al. (2016). Environmental 24-hr cycles are essential for health. <em>Current Biology, 26</em>(14).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Olyckor vid kärnkraftverken</p>
+        <p class="ref-cite">Strogatz, S. H. (2012). <em>Sync: How order emerges from chaos in the universe, nature, and daily life.</em> Hachette UK.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TVÅ: MENTALA TIDSRESOR ──────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Två: Mentala tidsresor</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">En av världens främsta forskare i neurovetenskap</p>
+        <p class="ref-cite">Buonomano, D. (2017). <em>Your brain is a time machine: The neuroscience and physics of time.</em> WW Norton &amp; Company.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Mer om mentala tidsresor och dess evolutionära fördelar</p>
+        <p class="ref-cite">Suddendorf, T., &amp; Corballis, M. C. (2007). The evolution of foresight: What is mental time travel, and is it unique to humans? <em>Behavioral and brain sciences, 30</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det kan dock vara så att denna förmåga utvecklades ännu senare, för omkring 40 000 år sedan</p>
+        <p class="ref-cite">Wynn, T., &amp; Coolidge, F. L. (2011). The implications of the working memory model for the evolution of modern cognition. <em>International Journal of Evolutionary Biology, 2011</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Förmågan att uppfatta och bedöma tid har ökat möjligheten att överleva</p>
+        <p class="ref-cite">Felt, H. A. (2020). The enduring pursuit. In <em>Key issues in hunter-gatherer research.</em> Routledge.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Människor är långt ifrån det enda djur som kan göra komplexa bedömningar av tid</p>
+        <p class="ref-cite">Zentall, T. R. (2013). Animals represent the past and the future. <em>Evolutionary Psychology, 11</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ju/'hoansi behövde sällan planera många månader framåt</p>
+        <p class="ref-cite">Lee, R. B., &amp; DeVore, I. (Eds.). (1976). <em>Kalahari hunter-gatherers: Studies of the !Kung San and their neighbors.</em> Harvard University Press.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Från Afrika över resten av jorden</p>
+        <p class="ref-cite">Harvati, K., et al. (2019). Apidima Cave fossils provide earliest evidence of Homo sapiens in Eurasia. <em>Nature, 571</em>(7766).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">"när tidvattnet går dukas bordet"</p>
+        <p class="ref-cite">Efford, M., et al. (2023). Archaeology demonstrates sustainable ancestral Coast Salish salmon stewardship over thousands of years. <em>Plos one, 18</em>(8).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I nuvarande Jordanien</p>
+        <p class="ref-cite">Kuijt, I., &amp; Finlayson, B. (2009). Evidence for food storage and predomestication granaries 11,000 years ago in the Jordan Valley. <em>Proceedings of the National Academy of Sciences, 106</em>(27).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Tillgången på mat gjorde att ett fåtal människors arbete kunde mätta allas magar</p>
+        <p class="ref-cite">Crittenden, A. N., &amp; Schnorr, S. L. (2017). Current views on hunter-gatherer nutrition and the evolution of the human diet. <em>American Journal of Physical Anthropology, 162</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Lösningen blev kalendrar</p>
+        <p class="ref-cite">Bacon, B., et al. (2023). An Upper Palaeolithic proto-writing system and phenological calendar. <em>Cambridge Archaeological Journal, 33</em>(3).<br>
+        Nowell, A., Bahn, P., &amp; Le Quellec, J. L. Evaluating the Evidence for Lunar Calendars in Upper Palaeolithic Parietal Art. <em>Cambridge Archaeological Journal</em>, 1–18.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det fanns romerska präster</p>
+        <p class="ref-cite">Duncan, D. E. (1998). <em>Calendar: Humanity's epic struggle to determine a true and accurate year.</em> Harper Perennial.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Om du tittar på mäklarannonser</p>
+        <p class="ref-cite">Rush, J., &amp; Grouzet, F. M. (2012). It is about time: Daily relationships between temporal perspective and well-being. <em>The Journal of Positive Psychology, 7</em>(5).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Men alla har ett huvudsakligt tidsperspektiv</p>
+        <p class="ref-cite">Stolarski, M., Zawadzki, B., Matthews, G., Pruszczak, D., &amp; Wojciechowski, J. (2024). Behavioral genetics of temporal framing: Heritability of time perspective and its common genetic bases with major personality traits. <em>Journal of Personality, 92</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ett barn som vanvårdas</p>
+        <p class="ref-cite">Van Gelder, J. L., et al. (2018). Punitive parenting and delinquency: The mediating role of short-term mindsets. <em>The British Journal of Criminology, 58</em>(3).<br>
+        Webley, P., &amp; Nyhus, E. K. (2006). Parents' influence on children's future orientation and saving. <em>Journal of Economic Psychology, 27</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En grupp forskare började undersöka amerikaners tidsperspektiv</p>
+        <p class="ref-cite">Holman, E. A., &amp; Silver, R. C. (2005). Future-oriented thinking and adjustment in a nationwide longitudinal study following the September 11th terrorist attacks. <em>Motivation and Emotion, 29</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ditt tidsperspektiv påverkar beteenden och välbefinnande</p>
+        <p class="ref-cite">Diaconu-Gherasim, L. R., Mardari, C. R., &amp; Măirean, C. (2023). The relation between time perspectives and well-being: A meta-analysis on research. <em>Current Psychology, 42</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Personer med fokus på dåtiden</p>
+        <p class="ref-cite">Shipp, A. J., Edwards, J. R., &amp; Lambert, L. S. (2009). Conceptualization and measurement of temporal focus. <em>Organizational behavior and human decision processes, 110</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Fokus på framtiden gör det lättare</p>
+        <p class="ref-cite">Shipp, A. J., &amp; Aeon, B. (2019). Temporal focus: Thinking about the past, present, and future. <em>Current Opinion in Psychology, 26</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Balanserat tidsperspektiv</p>
+        <p class="ref-cite">Stolarski, M., Wiberg, B., &amp; Osin, E. (2014). Assessing temporal harmony: The issue of a balanced time perspective. In <em>Time perspective theory; Review, research and application.</em> Springer International Publishing.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TRE: TIDSILLUSIONER ─────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tre: Tidsillusioner</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">I en intervju för The Independent</p>
+        <p class="ref-cite">Jaques, A. (2016, januari). David Eagleman interview: 'It's a mistake to think of ourselves as individuals'. <em>The Independent.</em></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Hjärnan behöver cirka trettio till sextio millisekunder</p>
+        <p class="ref-cite">Elliott, M. A., &amp; Giersch, A. (2016). What happens in a moment. <em>Frontiers in psychology, 6</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Samtliga deltagare gissade i efterhand att det varat längre än tre sekunder</p>
+        <p class="ref-cite">Stetson, C., Fiesta, M. P., &amp; Eagleman, D. M. (2007). Does time really slow down during a frightening event? <em>PloS one, 2</em>(12).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Upplevelsen av att tiden går snabbt eller långsamt vid olika tillfällen</p>
+        <p class="ref-cite">Eagleman, D. M., &amp; Pariyadath, V. (2009). Is subjective duration a signature of coding efficiency? <em>Philosophical Transactions of the Royal Society B, 364</em>(1525).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en av Eaglemans studier</p>
+        <p class="ref-cite">Eagleman, D. M. (2010). Duration illusions and predictability. In <em>Attention and time.</em> Oxford University Press.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I nuet kan du uppleva det händelselösa som evigt</p>
+        <p class="ref-cite">Wearden, J. H. (2015). Passage of time judgements. <em>Consciousness and cognition, 38</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vittnen bedömer ofta att händelserna tar längre tid än de gör i verkligheten</p>
+        <p class="ref-cite">Loftus, E. F., et al. (1987). Time went by so slowly: Overestimation of event duration by males and females. <em>Applied Cognitive Psychology, 1</em>(1).<br>
+        Fayolle, S., Gil, S., &amp; Droit-Volet, S. (2015). Fear and time: Fear speeds up the internal clock. <em>Behavioural processes, 120</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Då trodde filmtittarna att studien tagit längre tid</p>
+        <p class="ref-cite">Wearden, J. (2016). Retrospective timing and passage of time judgements. In: <em>The psychology of time perception</em>, 117–141.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Denna teleskopeffekt</p>
+        <p class="ref-cite">Draaisma, D. (2004). <em>Why life speeds up as you get older: How memory shapes our past.</em> Cambridge University Press.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Oavsett personens nuvarande ålder är flesta starka minnen från tonåren eller tjugoårsåldern</p>
+        <p class="ref-cite">Mioni, G., et al. (2022). Time perception in cocaine-dependent patients. <em>Brain Sciences, 12</em>(6).<br>
+        Abdelshafy, A. (2016). Altered Perceptions: How Various Substances Influence Our Perception of Time. <em>Berkeley Scientific Journal, 21</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Även "stresshormon" som kortisol får den interna timern att gå snabbare</p>
+        <p class="ref-cite">Bagley, S. L., et al. (2021). That moment felt like forever: Stress effects on time perception in males. <em>Timing &amp; Time Perception, 9</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Med åren är man med om färre starka händelser</p>
+        <p class="ref-cite">Munawar, K., Kuhn, S. K., &amp; Haque, S. (2018). Understanding the reminiscence bump: A systematic review. <em>PloS one, 13</em>(12).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Carstensen skriver</p>
+        <p class="ref-cite">Giasson, H. L., Liao, H. W., &amp; Carstensen, L. L. (2019). Counting down while time flies. <em>Current opinion in psychology, 26</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det kan vara att bygga något</p>
+        <p class="ref-cite">Mohammad, A. P., &amp; Drolet, A. (2019). The influence of age and time horizon perspective on consumer behavior. <em>Current Opinion in Psychology, 26</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Skriver forskartrion Solomon, Greenberg och Pyszczynski</p>
+        <p class="ref-cite">Pyszczynski, T., Solomon, S., &amp; Greenberg, J. (2015). Thirty years of terror management theory. In <em>Advances in experimental social psychology</em> (Vol. 52). Academic Press.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── FYRA: TEMPO OCH TIDSANDA ────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Fyra: Tempo och tidsanda</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Amerikanen Robert V. Levine upplevde något liknande</p>
+        <p class="ref-cite">Levine, R. N. (2008). <em>A geography of time: On tempo, culture, and the pace of life.</em> Basic Books.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Rika länder hade generellt högre livshastighet än fattiga</p>
+        <p class="ref-cite">Levine, R. V., &amp; Norenzayan, A. (1999). The pace of life in 31 countries. <em>Journal of cross-cultural psychology, 30</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Människor i länder med hög livshastighet hade högre motivation</p>
+        <p class="ref-cite">Kirkcaldy, B., Furnham, A., &amp; Levine, R. (2001). Attitudinal and personality correlates of a nation's pace of life. <em>Journal of Managerial Psychology, 16</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Idag, tjugo år senare, är mer än hälften bosatta i städer</p>
+        <p class="ref-cite">UN (2018). <em>68% of the world population projected to live in urban areas by 2050, says UN.</em> United Nations.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En fördubbling av stadens storlek innebär…</p>
+        <p class="ref-cite">Bettencourt, L. M., et al. (2007). Growth, innovation, scaling, and the pace of life in cities. <em>PNAS, 104</em>(17).<br>
+        West, G. (2018). <em>Scale: The universal laws of life, growth, and death in organisms, cities, and companies.</em> Penguin.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Skillnader i livshastighet finns hos andra djur än människan</p>
+        <p class="ref-cite">Careau, V., et al. (2010). The pace of life under artificial selection. <em>The American Naturalist, 175</em>(6).<br>
+        Montiglio, P. O., et al. (2018). The pace-of-life syndrome revisited. <em>Behavioral Ecology and Sociobiology, 72</em>.<br>
+        Royauté, R., et al. (2018). Paceless life? A meta-analysis. <em>Behavioral Ecology and Sociobiology, 72</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ormarna med hög livshastighet är mer aggressiva</p>
+        <p class="ref-cite">Gangloff, E. J., et al. (2017). Integrating behaviour into the pace-of-life continuum. <em>Behavioural processes, 142</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det visade sig att de som varit snabba med formulär och förflyttning även var mer risktagande</p>
+        <p class="ref-cite">Goldbach, C., et al. (2020). The fast and the furious. <em>PloS one, 15</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Hög hastighet ökar risken för misstag</p>
+        <p class="ref-cite">Fitzpatrick, C. D., Samuel, S., &amp; Knodler Jr, M. A. (2017). The use of a driving simulator to determine how time pressures impact driver aggressiveness. <em>Accident Analysis &amp; Prevention, 108</em>.<br>
+        von Bechtolsheim, F., et al. (2022). Does speed equal quality? <em>International Journal of Surgery, 104</em>.<br>
+        Szalma, J. A., Hancock, P. A., &amp; Quinn, S. (2008). A meta-analysis of the effect of time pressure on human performance. <em>HFES Annual Meeting</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Människor med hög livshastighet har en tendens att uträtta mer men också göra fler misstag</p>
+        <p class="ref-cite">Hoffmann, C., Hoppe, J. A., &amp; Ziemann, N. (2021). The Hare and the Hedgehog. <em>PloS one, 16</em>(8).<br>
+        Hoffmann, C., Hoppe, J. A., &amp; Ziemann, N. (2022). Faster, harder, greener? <em>Ecological Economics, 191</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vi använder metaforer för att tala om tid</p>
+        <p class="ref-cite">Lakoff, G., &amp; Johnson, M. (2008). <em>Metaphors we live by.</em> University of Chicago Press.<br>
+        Boroditsky, L., &amp; Ramscar, M. (2002). The roles of body and mind in abstract thought. <em>Psychological science, 13</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När forskare undersökt hur livshastighet och tidsmetaforer samspelar</p>
+        <p class="ref-cite">Richmond, J., Clare Wilson, J., &amp; Zinken, J. (2012). A feeling for the future. <em>European Journal of Social Psychology, 42</em>(7).<br>
+        Li, H., &amp; Cao, Y. (2019). Moving at the speed of life. <em>Metaphor and Symbol, 34</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Att hastigheten accelererar</p>
+        <p class="ref-cite">Southerton, D. (2020). <em>Time, consumption and the coordination of everyday life.</em> Palgrave Macmillan.<br>
+        Gershuny, J., &amp; Sullivan, O. (2019). Feeling Rushed. In: <em>What we really do all day.</em> Penguin UK.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Men ett snabbare tempo leder inte till att människor får mer tid över</p>
+        <p class="ref-cite">Wajcman, J. (2020). <em>Pressed for time: The acceleration of life in digital capitalism.</em> University of Chicago Press.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── FEM: TID OCH SPRÅK ──────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Fem: Tid och språk</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">I finska områden där många svensktalande bor</p>
+        <p class="ref-cite">Salminen, S., &amp; Johansson, A. (2000). Occupational accidents of Finnish- and Swedish-speaking workers in Finland. <em>International Journal of Occupational Safety and Ergonomics, 6</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Exempelvis mandarin som placerar tid på en vertikal linje</p>
+        <p class="ref-cite">Fuhrman, O., &amp; Boroditsky, L. (2010). Cross-Cultural Differences in Mental Representations of Time. <em>Cognitive Science, 34</em>(8).<br>
+        Majid, A., Gaby, A., &amp; Boroditsky, L. (2013). Time in terms of space. <em>Frontiers in Psychology, 4</em>.<br>
+        Ouellet, M., et al. (2010). Is the future the right time? <em>Experimental Psychology, 57</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I ett experiment av tre forskare vid Stanfords universitet</p>
+        <p class="ref-cite">Boroditsky, L., Fuhrman, O., &amp; McCormick, K. (2011). Do English and Mandarin speakers think about time differently? <em>Cognition, 118</em>(1).<br>
+        Fuhrman, O., et al. (2011). How linguistic and cultural forces shape conceptions of time. <em>Cognitive science, 35</em>(7).<br>
+        Lai, V. T., &amp; Boroditsky, L. (2013). The immediate and chronic influence of spatio-temporal metaphors. <em>Frontiers in psychology, 4</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Lera Boroditsky är professor i kognitionsvetenskap</p>
+        <p class="ref-cite">NPR. (2018). Lost In Translation: The Power Of Language To Shape How We View The World. <em>Hidden Brain</em> [Podcast], 6 mars 2020.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Boroditsky lät pormpuraawierna utföra en variant av Woody Allen-uppgiften</p>
+        <p class="ref-cite">Boroditsky, L., &amp; Gaby, A. (2010). Remembrances of Times East. <em>Psychological Science, 21</em>(11).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskare vid Yale University fann</p>
+        <p class="ref-cite">Ayres, I., Katz, T. K., &amp; Regev, T. (2023). Languages and future-oriented economic behavior. <em>PNAS, 120</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I länder där språket gör stor skillnad mellan nutid och framtid</p>
+        <p class="ref-cite">Chen, M. K. (2013). The effect of language on economic behavior. <em>American Economic Review, 103</em>(2).<br>
+        Mavisakalyan, A., Tarverdi, Y., &amp; Weber, C. (2018). Talking in the present, caring for the future. <em>Journal of Comparative Economics, 46</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Strømnes upptäckte skillnad mellan språkens fokus på rörelse</p>
+        <p class="ref-cite">Strømnes, F. J. (1974). No universality of cognitive structures? <em>Scandinavian Journal of Psychology, 15</em>(1).<br>
+        Strømnes, F. J. (1974). To be is not always to be. <em>Scandinavian Journal of Psychology, 15</em>(1).<br>
+        Strømnes, F.J., Johansson, A. &amp; Hiltunen, E. (1982). <em>The Externalised Image.</em> Helsinki: The Finnish Broadcasting Corporation.<br>
+        Salminen, S., &amp; Johansson, A. (2000). Occupational accidents of Finnish- and Swedish-speaking workers in Finland. <em>IJOSE, 6</em>(2).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── SEX: FRÅN SOLUR TILL SCHEMAN ───────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Sex: Från solur till scheman</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Det var dags att standardisera tiden</p>
+        <p class="ref-cite">Holmberg, G., &amp; Kärnfelt, J. (2019). <em>Tid för enhetlighet: astronomerna och standardiseringen av tid i Sverige.</em> Nordic Academic Press.<br>
+        Zerubavel, E. (1982). The standardization of time. <em>American journal of sociology, 88</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en studie publicerad i Journal of Experimental Social Psychology</p>
+        <p class="ref-cite">Avnet, T., &amp; Sellier, A. L. (2011). Clock time vs. event time. <em>Journal of Experimental Social Psychology, 47</em>(3).<br>
+        Sellier, A. L., &amp; Avnet, T. (2014). So what if the clock strikes? <em>Journal of Personality and Social Psychology, 107</em>(5).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Samma fenomen ser vi när människor får njuta av musik, konst och mat</p>
+        <p class="ref-cite">Tang, Y., Huang, Z., &amp; Su, L. (2023). The influence of event-time (vs. clock-time) scheduling style on satiation. <em>Journal of Consumer Psychology, 33</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">International Time Recording Company hävdade i sin reklam</p>
+        <p class="ref-cite">O'malley, M. (1996). <em>Keeping Watch – A history of American time.</em> Smithsonian Books.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Taylor ansåg att systemet</p>
+        <p class="ref-cite">Taylor, F. W. (1913). <em>Rationell arbetsledning – Taylor-Systemet.</em> Sveriges Industriförbund.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Till slut möttes man på mitten</p>
+        <p class="ref-cite">De Geer, H. (1978). <em>Rationaliseringsrörelsen i Sverige.</em> SNS.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskningen visar att en snäv tidsram kan bidra till kreativitet</p>
+        <p class="ref-cite">Song, H., et al. (2023). The nonlinear effect of time pressure on innovation performance. <em>Frontiers in Psychology, 13</em>.<br>
+        Zhang, Y., et al. (2023). A new perspective on time pressure and creativity. <em>Journal of Organizational Behavior, 44</em>(9).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Medarbetare som kommer tidigt till jobbet anses mer kompetenta</p>
+        <p class="ref-cite">Yam, K. C., Fehr, R., &amp; Barnes, C. M. (2014). Morning employees are perceived as better employees. <em>Journal of Applied Psychology, 99</em>(6).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ändå lägger människor upp till tre timmars arbetstid per dag på att inte arbeta</p>
+        <p class="ref-cite">Paulsen, R. (2015). Non-work at work: Resistance or what? <em>Organization, 22</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Samtidigt arbetar fyra av tio ofta under tidspress</p>
+        <p class="ref-cite">Gallup (2024). <em>State of the Global Workplace: 2024 Report.</em><br>
+        Eurostat (2023). Persons in employment by frequency of working under time pressure. <a href="https://ec.europa.eu/eurostat/databrowser/view/lfso_19mtwk20/" target="_blank" rel="noopener">ec.europa.eu/eurostat</a></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Ökar risken för sjukskrivning med nästan femtio procent</p>
+        <p class="ref-cite">Amiri, S., &amp; Behnezhad, S. (2020). Association between job strain and sick leave. <em>Public Health, 185</em>.<br>
+        Försäkringskassan (2023). Antal pågående sjukfall på grund av stress.<br>
+        Ekberg, K., et al. (2017). Arbetsgivares kostnader, åtgärder och anpassningar. <em>HELIX Rapport 17:003</em>.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── SJU: BEHOV OCH BEGÄR ────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Sju: Behov och begär</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">År 1930 förutspådde han i essän Ekonomiska möjligheter för våra barnbarn</p>
+        <p class="ref-cite">Keynes, J. M. (1930). Economic possibilities for our grandchildren. In <em>Essays in persuasion.</em> Palgrave Macmillan.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I slutet av artonhundratalet vajade första maj-skyltar</p>
+        <p class="ref-cite">Olsson, L., &amp; Ekdahl, L. (2004). <em>Klass i rörelse: Arbetarrörelsen i svensk samhällsutveckling.</em> Arbetarrörelsens arkiv och bibliotek.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Grundaren Will Keith Kellogg ansåg att hälsa och välmående var viktigare än arbete</p>
+        <p class="ref-cite">Hunnicutt, B. K. (1992). Kellogg's six-hour day. <em>Business History Review, 66</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Människor med högt subjektivt välbefinnande</p>
+        <p class="ref-cite">Diener, E., Oishi, S., &amp; Tay, L. (2018). Advances in subjective well-being research. <em>Nature Human Behaviour, 2</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Easterlins paradox</p>
+        <p class="ref-cite">Easterlin, R. A., &amp; O'Connor, K. J. (2022). The easterlin paradox. In <em>Handbook of labor, human resources and population economics.</em> Springer.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Över sextio års studier på social jämförelse</p>
+        <p class="ref-cite">Gerber, J. P., Wheeler, L., &amp; Suls, J. (2018). A social comparison theory meta-analysis 60+ years on. <em>Psychological bulletin, 144</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En forskargrupp ledda av Andrew T. Jebb och Shigehiro Oishi</p>
+        <p class="ref-cite">Jebb, A. T., Tay, L., Diener, E., &amp; Oishi, S. (2018). Happiness, income satiation and turning points around the world. <em>Nature Human Behaviour, 2</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I senare studier av Matthew Killingsworth</p>
+        <p class="ref-cite">Killingsworth, M. A. (2021). Experienced well-being rises with income, even above $75,000 per year. <em>PNAS, 118</em>(4).<br>
+        Killingsworth, M. A., Kahneman, D., &amp; Mellers, B. (2023). Income and emotional well-being: A conflict resolved. <em>PNAS, 120</em>(10).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Erik Lindqvist, Robert Östling och David Cesarini</p>
+        <p class="ref-cite">Lindqvist, E., Östling, R., &amp; Cesarini, D. (2020). Long-run effects of lottery wealth on psychological well-being. <em>The Review of Economic Studies, 87</em>(6).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En studie från 2024, ledd av Eric Galbraith</p>
+        <p class="ref-cite">Galbraith, E. D., et al. (2024). High life satisfaction reported among small-scale societies with low incomes. <em>PNAS, 121</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskarna Aekyoung Kim och Sam Maglio upptäckte</p>
+        <p class="ref-cite">Kim, A., &amp; Maglio, S. J. (2018). Vanishing time in the pursuit of happiness. <em>Psychonomic Bulletin &amp; Review, 25</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I artikeln med det passande namnet "Den mörka sidan av den amerikanska drömmen"</p>
+        <p class="ref-cite">Bradshaw, E. L., et al. (2023). A meta-analysis of the dark side of the American dream. <em>Journal of Personality and Social Psychology, 124</em>(4).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── ÅTTA: STATUSTID ─────────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Åtta: Statustid</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Människor överrapporterar</p>
+        <p class="ref-cite">Robinson, J. P., Martin, S., Glorieux, I., &amp; Minnens, J. (2011). The overestimated workweek revisited. <em>Monthly Lab. Rev., 134</em>.<br>
+        Robinson, J. P., &amp; Martin, S. (2011). Time use as a social indicator. In <em>Handbook of social indicators and quality of life research.</em> Springer.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Nästan sjuhundrafemtio tusen människor dör</p>
+        <p class="ref-cite">Pega, F., et al. (2021). Global, regional, and national burdens of ischemic heart disease and stroke attributable to long working hours. <em>Environment international, 154</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I ett av sina experiment presenterade Bellezza hundratals amerikaner</p>
+        <p class="ref-cite">Bellezza, S., Paharia, N., &amp; Keinan, A. (2017). Conspicuous consumption of time. <em>Journal of Consumer Research, 44</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Detta syns även i forskning från andra länder</p>
+        <p class="ref-cite">Celniker, J. B., et al. (2023). The moralization of effort. <em>Journal of Experimental Psychology: General, 152</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en serie experiment av forskare vid universitetet i Austin och Cornell</p>
+        <p class="ref-cite">Chan, E. W., Kachelmeier, S. J., &amp; Zhang, X. (2021). Working longer but not harder. <em>The Accounting Review, 96</em>(5).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Iögonfallande konsumtion</p>
+        <p class="ref-cite">Veblen, T. (2017). <em>The theory of the leisure class.</em> Routledge.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det visar studier av Maria Trupia</p>
+        <p class="ref-cite">Trupia, M. G., Mogilner Holmes, C., &amp; Engeler, I. What's Meant vs. Heard When Communicating Busyness. Under review at <em>Journal of Personality and Social Psychology.</em></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Stora sammanställningar av forskning från hela världen</p>
+        <p class="ref-cite">Roese, N. J., &amp; Summerville, A. (2005). What we regret most... and why. <em>Personality and Social Psychology Bulletin, 31</em>(9).<br>
+        Ware, B. (2011). <em>The Top Five Regrets of the Dying.</em> Hay House.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Marshmallow-testet</p>
+        <p class="ref-cite">Mischel, W. (2014). <em>The marshmallow test: Understanding self-control and how to master it.</em> Random House.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Anat Keinan och hennes kollega Ran Kivetz har undersökt</p>
+        <p class="ref-cite">Keinan, A., &amp; Kivetz, R. (2008). Remedying hyperopia. <em>Journal of Marketing Research, 45</em>(6).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── NIO: TIDENS VÄRDE ───────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Nio: Tidens värde</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">När vi har ett ekonomiskt värde på tiden prioriterar vi annorlunda</p>
+        <p class="ref-cite">Pfeffer, J., &amp; DeVoe, S. E. (2012). The economic evaluation of time. <em>Research in Organizational Behavior, 32</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det finns en avgörande psykologisk skillnad mellan tid och pengar</p>
+        <p class="ref-cite">Mogilner, C. (2010). The pursuit of happiness: Time, money, and social connection. <em>Psychological Science, 21</em>(9).<br>
+        Catapano, R., et al. (2023). Financial resources impact the relationship between meaning and happiness. <em>Emotion, 23</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Barn som lekt med pengar är mindre hjälpsamma</p>
+        <p class="ref-cite">Gasiorowska, A., et al. (2016). Money cues increase agency and decrease prosociality among children. <em>Psychological Science, 27</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I ett experiment lett av Kathleen D. Vohs</p>
+        <p class="ref-cite">Savani, K., et al. (2016). No match for money. <em>Self and Identity, 15</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När vi fokuserar på tid blir vi istället mer hjälpsamma</p>
+        <p class="ref-cite">Liu, W., &amp; Aaker, J. (2008). The happiness of giving: The time-ask effect. <em>Journal of consumer research, 35</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskarna Alex Bryson och George MacKerron</p>
+        <p class="ref-cite">Bryson, A., &amp; MacKerron, G. (2017). Are you happy while you work? <em>The Economic Journal, 127</em>(599).<br>
+        Kahneman, D., et al. (2004). A survey method for characterizing daily life experience: The day reconstruction method. <em>Science, 306</em>(5702).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">DeVoe och hans kollega Julian House lät studiedeltagare</p>
+        <p class="ref-cite">DeVoe, S. E., &amp; House, J. (2012). Time, money, and happiness. <em>Journal of Experimental Social Psychology, 48</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En studie i de skandinaviska länderna</p>
+        <p class="ref-cite">Santini, Z. I., et al. (2019). Formal volunteer activity and psychological flourishing in Scandinavia. <em>Social Currents, 6</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En amerikansk forskargrupp bad studiedeltagare</p>
+        <p class="ref-cite">Mogilner, C., Chance, Z., &amp; Norton, M. I. (2012). Giving time gives you time. <em>Psychological Science, 23</em>(10).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I ytterligare ett experiment av DeVoe och Pfeffer</p>
+        <p class="ref-cite">DeVoe, S. E., &amp; Pfeffer, J. (2011). Time is tight. <em>Journal of Applied Psychology, 96</em>(4).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TIO: TIDSNÖDENS EFFEKTER ───────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tio: Tidsnödens effekter</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">De australiensiska forskarna Danielle Venn och Lyndall Strazdins</p>
+        <p class="ref-cite">Venn, D., &amp; Strazdins, L. (2017). Your money or your time? <em>Social Science and Medicine, 172</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Utöver passivitet och dåliga matvanor bidrar tidsbrist till psykisk ohälsa</p>
+        <p class="ref-cite">Ervin, J., et al. (2022). Gender differences in the association between unpaid labour and mental health. <em>The Lancet Public Health, 7</em>(9).<br>
+        Roxburgh, S. (2004). "There Just Aren't Enough Hours in the Day". <em>Journal of Health and Social Behavior, 45</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Studier världen över visar samma fynd</p>
+        <p class="ref-cite">Hamermesh, D. S., &amp; Lee, J. (2007). Stressed out on four continents. <em>The review of Economics and Statistics, 89</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Samma arbetare uppvisade lägre intelligens och sämre kognitiv kontroll</p>
+        <p class="ref-cite">Mani, A., Mullainathan, S., Shafir, E., &amp; Zhao, J. (2013). Poverty impedes cognitive function. <em>Science, 341</em>(6149).<br>
+        Shah, A. K., Mullainathan, S., &amp; Shafir, E. (2019). An exercise in self-replication. <em>Journal of Economic Psychology, 75</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">De tre forskarna Anuj K. Shah, Sendhil Mullainathan och Eldar Shafir</p>
+        <p class="ref-cite">Shah, A. K., Mullainathan, S., &amp; Shafir, E. (2012). Some consequences of having too little. <em>Science, 338</em>(6107).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En studie av ett sextiotal chefer och deras medarbetare</p>
+        <p class="ref-cite">Zhang, Z., &amp; Jia, X. (2023). No time for ethics. <em>Journal of Business Ethics, 188</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Tidsbrist får en att välja det som är brådskande framför det som är viktigt</p>
+        <p class="ref-cite">Zhu, M., Yang, Y., &amp; Hsee, C. K. (2018). The mere urgency effect. <em>Journal of Consumer Research, 45</em>(3).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── ELVA: VALENS FÖRBANNELSE ───────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Elva: Valens förbannelse</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Herbert Simon, som senare fick Nobelpriset, beskrev</p>
+        <p class="ref-cite">Simon, H. A. (1955). A behavioral model of rational choice. <em>The quarterly journal of economics</em>, 99–118.<br>
+        Simon, H. A. (1979). Rational decision making in business organizations. <em>The American Economic Review, 69</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Många valmöjligheter får tiden att försvinna</p>
+        <p class="ref-cite">Belli, A., et al. (2022). The wellbeing implications of maximizing: A conceptual framework and meta-analysis. <em>Journal of Consumer Psychology, 32</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Två forskare, Rafaella Misuraca och Ursina Teuscher</p>
+        <p class="ref-cite">Misuraca, R., &amp; Teuscher, U. (2013). Time flies when you maximize. <em>Acta psychologica, 143</em>(2).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I forskning av Liad Weiss och Ray Kivetz</p>
+        <p class="ref-cite">Weiss, L., &amp; Kivetz, R. (2019). Opportunity cost overestimation. <em>Journal of Marketing Research, 56</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Tre amerikanska forskare lät sina deltagare reflektera</p>
+        <p class="ref-cite">Etkin, J., Evangelidis, I., &amp; Aaker, J. (2015). Pressed for time? Goal conflict shapes how time is perceived. <em>Journal of Marketing Research, 52</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Fyra forskare samlade över tusen amerikanska universitetsstudenter</p>
+        <p class="ref-cite">Bursztyn, L., Handel, B. R., Jimenez, R., &amp; Roth, C. (2023). When product markets become collective traps (No. w31771). NBER.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det ger mig mer tid och energi till uppgifter som kräver närvaro och fokus</p>
+        <p class="ref-cite">Leroy, S., Schmidt, A. M., &amp; Madjar, N. (2020). Interruptions and task transitions. <em>Academy of Management Annals, 14</em>(2).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TOLV: EFFEKTIVITETENS FÄLLA ───────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tolv: Effektivitetens fälla</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Brad Aeon vid universitetet i Toronto sammanställde all tillgänglig forskning</p>
+        <p class="ref-cite">Aeon, B., Faber, A., &amp; Panaccio, A. (2021). Does time management work? A meta-analysis. <em>PloS one, 16</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Beredskapsplanering ger störst ökning i både engagemang och prestation</p>
+        <p class="ref-cite">Parke, M. R., et al. (2018). When daily planning improves employee performance. <em>Journal of Applied Psychology, 103</em>(3).<br>
+        Gollwitzer, P. M., &amp; Sheeran, P. (2025). Psychology of planning. <em>Annual Review of Psychology, 76</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en studie ledd av Dan Ariely vid Duke University</p>
+        <p class="ref-cite">Ariely, D., &amp; Wertenbroch, K. (2002). Procrastination, deadlines, and performance. <em>Psychological science, 13</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En grupp svenska forskare med Alexander Rozenthal i spetsen</p>
+        <p class="ref-cite">Rozental, A., et al. (2018). Targeting procrastination using psychological treatments. <em>Frontiers in psychology, 9</em>.<br>
+        van Eerde, W., &amp; Klingsieck, K. B. (2018). Overcoming procrastination? A meta-analysis. <em>Educational Research Review, 25</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskaren Gabriella Tonietto har undersökt</p>
+        <p class="ref-cite">Tonietto, G. N., &amp; Malkoc, S. A. (2016). The calendar mindset. <em>Journal of Marketing Research, 53</em>(6).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Närvaro stärker de positiva känslor som tillfället ger</p>
+        <p class="ref-cite">Ho, C. Y., Ben, C. L., &amp; Mak, W. W. (2022). Nonattachment mediates the associations between mindfulness, well-being, and psychological distress. <em>Clinical Psychology Review, 95</em>.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TRETTON: MULTITASKINGENS BAKSIDA ───────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tretton: Multitaskingens baksida</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Stora sammanställningar av hur multitasking påverkar inlärning och arbetsprestation</p>
+        <p class="ref-cite">Gartrell, J. L. (2019). <em>The Effect Size of Multitasking on Individual Task Performance: A Meta-Analysis.</em> Grand Canyon University.<br>
+        Wiradhany, W., &amp; Koerts, J. (2021). Everyday functioning-related cognitive correlates of media multitasking. <em>Media Psychology, 24</em>(2).<br>
+        Clinton-Lisell, V. (2021). Stop multitasking and just read. <em>Journal of Research in Reading, 44</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Försökspersoner i olika studier får transkribera videor</p>
+        <p class="ref-cite">Srna, S., Schrift, R. Y., &amp; Zauberman, G. (2018). The illusion of multitasking and its positive effect on performance. <em>Psychological Science, 29</em>(12).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en sammanställning av alla tillgängliga studier</p>
+        <p class="ref-cite">Becker, L., et al. (2023). Differences in stress system (re-)activity between single and dual-or multitasking. <em>Health psychology review, 17</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Klotz fick en uppenbarelse när han byggde en bro av Lego</p>
+        <p class="ref-cite">Klotz, L. (2021). <em>Subtract: The untapped science of less.</em> Flatiron Books.<br>
+        Adams, G. S., et al. (2021). People systematically overlook subtractive changes. <em>Nature, 592</em>(7853).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När forskare undersökt hur variation av aktiviteter påverkar människors välbefinnande</p>
+        <p class="ref-cite">Etkin, J., &amp; Mogilner, C. (2016). Does variety among activities increase happiness? <em>Journal of Consumer Research, 43</em>(2).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── FJORTON: TIDSOPTIMISM ───────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Fjorton: Tidsoptimism</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Nästan alla stora projekt tar längre tid och blir dyrare än planerat</p>
+        <p class="ref-cite">Flyvbjerg, B. (2005). Design by deception. <em>Harvard Design Magazine</em>, Spring/Summer (22).<br>
+        Flyvbjerg, B. (2017). Introduction: The Iron Law of Megaproject Management. In <em>The Oxford Handbook of Megaproject Management</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Underskattning av tid gäller även för vardagliga aktiviteter</p>
+        <p class="ref-cite">Roy, M. M., Christenfeld, N. J., &amp; McKenzie, C. R. (2005). Underestimating the duration of future events. <em>Psychological bulletin, 131</em>(5).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vi människor har en tendens att vara optimistiska om framtiden</p>
+        <p class="ref-cite">Shepperd, J. A., et al. (2013). Taking stock of unrealistic optimism. <em>Perspectives on Psychological Science, 8</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en undersökning av tusentals brittiska husägare</p>
+        <p class="ref-cite">Weinstein, N. D., &amp; Lyon, J. E. (1999). Mindset, optimistic bias about personal risk and health-protective behaviour. <em>British Journal of Health Psychology, 4</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När människor förklarar varför deras tidigare planer inte fungerat</p>
+        <p class="ref-cite">Buehler, R., Griffin, D., &amp; Ross, M. (1994). Exploring the "planning fallacy". <em>Journal of personality and social psychology, 67</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">De flesta tror att de snart kommer att ha mer tid</p>
+        <p class="ref-cite">Zauberman, G., &amp; Lynch Jr, J. G. (2005). Resource slack and propensity to discount delayed investments. <em>Journal of Experimental Psychology: General, 134</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Det finns likheter mellan att blicka långt fram i tiden och långt fram i rummet</p>
+        <p class="ref-cite">Trope, Y., &amp; Liberman, N. (2010). Construal-level theory of psychological distance. <em>Psychological review, 117</em>(2).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── FEMTON: SYSSLOLÖS ÄR INTE VÄRDELÖS ─────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Femton: Sysslolös är inte värdelös</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">2015 fick tvåtusen experter</p>
+        <p class="ref-cite">Grace, K., et al. (2018). When will AI exceed human performance? <em>Journal of Artificial Intelligence Research, 62</em>.<br>
+        Grace, K., et al. (2024). Thousands of AI authors on the future of AI. <em>arXiv</em>:2401.02843.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När forskarna Marissa A Sharif, Cassie Mogilner och Hal E. Hershfield undersökte</p>
+        <p class="ref-cite">Sharif, M. A., Mogilner, C., &amp; Hershfield, H. E. (2021). Having too little or too much time is linked to lower subjective well-being. <em>Journal of Personality and Social Psychology, 121</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Han har undersökt vad som händer när människor är sysslolösa</p>
+        <p class="ref-cite">Hsee, C. K., Yang, A. X., &amp; Wang, L. (2010). Idleness aversion and the need for justifiable busyness. <em>Psychological Science, 21</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En annan forskargrupp ledd av Timothy D. Wilson</p>
+        <p class="ref-cite">Wilson, T. D., et al. (2014). Just think: The challenges of the disengaged mind. <em>Science, 345</em>(6192).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Man har exempelvis sett att människor som har starka kopplingar</p>
+        <p class="ref-cite">Beaty, R. E., et al. (2014). Creativity and the default network. <em>Neuropsychologia, 64</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Professorerna John Kounios och Mark Beeman</p>
+        <p class="ref-cite">Kounios, J., &amp; Beeman, M. (2014). The cognitive neuroscience of insight. <em>Annual review of psychology, 65</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En paus på några minuter kan vara tillräckligt</p>
+        <p class="ref-cite">Albulescu, P., et al. (2022). "Give me a break!" A systematic review and meta-analysis on the efficacy of micro-breaks. <em>PloS one, 17</em>(8).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Han och hans forskarkollegor har undersökt vad uppfattningen om fritid gör med förmågan att glädjas</p>
+        <p class="ref-cite">Tonietto, G. N., et al. (2021). Viewing leisure as wasteful undermines enjoyment. <em>Journal of Experimental Social Psychology, 97</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En undersökning i Nederländerna</p>
+        <p class="ref-cite">Smeets, P., et al. (2020). Time use and happiness of millionaires: Evidence from the Netherlands. <em>Social Psychological and Personality Science, 11</em>(3).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── SEXTON: BEGRÄNSA TIDEN ─────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Sexton: Begränsa tiden</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">I en månadslång studie lät fyra forskare</p>
+        <p class="ref-cite">Layous, K., et al. (2018). Reframing the ordinary: Imagining time as scarce increases well-being. <em>The Journal of Positive Psychology, 13</em>(3).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Gemensamma upplevelser skapar band som blir svåra att slita sönder</p>
+        <p class="ref-cite">Lenger, K. A., &amp; Gordon, C. L. (2019). To have and to savor. <em>Couple and Family Psychology, 8</em>(1).<br>
+        Garcia-Rada, X., Anik, L., &amp; Ariely, D. (2019). Consuming together (versus separately) makes the heart grow fonder. <em>Marketing Letters, 30</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En gång samlade de fyrahundra personer som alla var i en parrelation</p>
+        <p class="ref-cite">Garcia-Rada, X., &amp; Kim, T. (2021). Shared time scarcity and the pursuit of extraordinary experiences. <em>Psychological Science, 32</em>(12).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskaren Melanie Rudd och hennes kollegor</p>
+        <p class="ref-cite">Rudd, M., Vohs, K. D., &amp; Aaker, J. (2012). Awe expands people's perception of time. <em>Psychological science, 23</em>(10).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En rik palett av både positiva och negativa känslor</p>
+        <p class="ref-cite">Berrios, R., Totterdell, P., &amp; Kellett, S. (2018). When feeling mixed can be meaningful. <em>Journal of Happiness Studies, 19</em>.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── SJUTTON: VÄRDERA TIDEN HÖGST ───────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Sjutton: Värdera tiden högst</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Hon har funnit att människor som prioriterar tid högre än pengar</p>
+        <p class="ref-cite">Whillans, A. V., Weidman, A. C., &amp; Dunn, E. W. (2016). Valuing time over money is associated with greater happiness. <em>Social Psychological and Personality Science, 7</em>(3).<br>
+        Hershfield, H. E., Mogilner, C., &amp; Barnea, U. (2016). People who choose time over money are happier. <em>Social Psychological and Personality Science, 7</em>(7).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Internationell forskargrupp undersökte hur människor</p>
+        <p class="ref-cite">Whillans, A. V., et al. (2017). Buying time promotes happiness. <em>PNAS, 114</em>(32).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En studie av Ashley Whillans och hennes kollega Colin West</p>
+        <p class="ref-cite">Whillans, A., &amp; West, C. (2022). Alleviating time poverty among the working poor. <em>Scientific Reports, 12</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en artikel publicerad i Science</p>
+        <p class="ref-cite">Dunn, E. W., Aknin, L. B., &amp; Norton, M. I. (2008). Spending money on others promotes happiness. <em>Science, 319</em>(5870).<br>
+        Folk, D., &amp; Dunn, E. (2024). How Can People Become Happier? A Systematic Review. <em>Annual Review of Psychology, 75</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Vid undersökningar i etthundratrettiosex länder</p>
+        <p class="ref-cite">Aknin, L. B., et al. (2013). Prosocial spending and well-being: cross-cultural evidence. <em>Journal of personality and social psychology, 104</em>(4).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── ARTON: PASSIONENS KRAFT ─────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Arton: Passionens kraft</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">I en undersökning ansåg endast hälften</p>
+        <p class="ref-cite">Geimer, J. L., et al. (2015). Meetings at work: Perceived effectiveness and recommended improvements. <em>Journal of Business Research, 68</em>(9).<br>
+        Brodsky, A., &amp; Amabile, T. M. (2018). The downside of downtime. <em>Journal of Applied Psychology, 103</em>(5).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">En forskargrupp vid Microsoft, Stanford och University College of London</p>
+        <p class="ref-cite">Cao, H., et al. (2021). Large scale analysis of multitasking behavior during remote meetings. <em>CHI Conference on Human Factors in Computing Systems.</em></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Mycket tid på ett arbete som känns meningsfullt</p>
+        <p class="ref-cite">Pollack, J. M., et al. (2020). Passion at work: A meta-analysis of individual work outcomes. <em>Journal of Organizational Behavior, 41</em>(4).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När John M. Jachimovicz och Ashley Whillans undersökte</p>
+        <p class="ref-cite">Jachimowicz, J., &amp; Whillans, A. (2018). Why Passionate Employees Can Have It All. <em>PsyArXiv Preprint.</em> <a href="https://doi.org/10.31234/osf.io/qd2zf" target="_blank" rel="noopener">doi:10.31234/osf.io/qd2zf</a></p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">2023 tog tre finska forskare del av enkätsvar från sextusen medelålders amerikaner</p>
+        <p class="ref-cite">Martela, F., Laitinen, E., &amp; Hakulinen, C. (2024). Which predicts longevity better: Satisfaction with life or purpose in life? <em>Psychology and Aging, 39</em>(6).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">De amerikanska forskarna Julian Givi och Colleen P. Kirk</p>
+        <p class="ref-cite">Givi, J., &amp; Kirk, C. P. (2024). Saying no: The negative ramifications from invitation declines are less severe than we think. <em>Journal of Personality and Social Psychology, 126</em>(6).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Forskning av bland andra Ashley Whillans inger hopp</p>
+        <p class="ref-cite">Whillans, A. V., et al. (2021). Extension request avoidance predicts greater time stress among women. <em>PNAS, 118</em>(45).</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── NITTON: BYGG ETT TIDSRIKT SAMHÄLLE ─────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Nitton: Bygg ett tidsrikt samhälle</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Verklighetens motsvarigheter till Arbetistan och Fritidien</p>
+        <p class="ref-cite">Jauch, M. (2023). Free time across the life course. <em>Political Studies, 71</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Robert E. Goodin har undersökt detta mer än de flesta</p>
+        <p class="ref-cite">Goodin, R. E. (2017). Freeing up time. <em>Law, Ethics and Philosophy.</em><br>
+        Goodin, R. E., et al. (2005). The time-pressure illusion. <em>Social indicators research, 73</em>.<br>
+        Goodin, R. E., et al. (2008). <em>Discretionary time: A new measure of freedom.</em> Cambridge University Press.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TJUGO: BEHANDLA FRAMTIDEN VÄL ──────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tjugo: Behandla framtiden väl</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Oavsett om man frågar unga, medelålders eller riktigt gamla personer svarar de flesta</p>
+        <p class="ref-cite">Quoidbach, J., Gilbert, D. T., &amp; Wilson, T. D. (2013). The end of history illusion. <em>Science, 339</em>(6115).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">När man skjuter in människor i en magnetkamera</p>
+        <p class="ref-cite">Ersner-Hershfield, H., Wimmer, G. E., &amp; Knutson, B. (2009). Saving for the future self. <em>Social cognitive and affective neuroscience, 4</em>(1).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Exempelvis är de mer villiga att avsätta pengar till pensionssparande</p>
+        <p class="ref-cite">Hershfield, H. E., et al. (2011). Increasing saving behavior through age-progressed renderings of the future self. <em>Journal of marketing research, 48</em>(SPL).</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Människor med en bredare syn på tid känner mer välbefinnande och mening</p>
+        <p class="ref-cite">Bergstrom, T., et al. (2024). A broad view of time predicts greater subjective well-being. <em>Personality and Individual Differences, 225</em>.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">Men Wade-Benzoni har genomfört finurliga experiment</p>
+        <p class="ref-cite">Wade-Benzoni, K. A., et al. (2012). It's only a matter of time: Death, legacies, and intergenerational decisions. <em>Psychological Science, 23</em>(7).<br>
+        Wade-Benzoni, K. A. (2019). Legacy motivations &amp; the psychology of intergenerational decisions. <em>Current opinion in psychology, 26</em>.</p>
+      </div>
+      </div>
+    </details>
+
+
+    <!-- ── TIDEN ÄR DIN ────────────────────────────────── -->
+    <details class="kapitel">
+      <summary><span class="kapitel-rubrik">Tiden är din</span><svg class="kapitel-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 8 10 13 15 8"/></svg></summary>
+      <div class="kapitel-body">
+
+      <div class="ref">
+        <p class="ref-text">Jordens temperatur ökar oroande mycket, oroande snabbt</p>
+        <p class="ref-cite">Lee, H., et al. (2023). <em>IPCC, 2023: Climate Change 2023: Synthesis Report.</em> IPCC, Geneva.</p>
+      </div>
+
+      <div class="ref">
+        <p class="ref-text">I en studie av Ray F. Baumeister och hans kollegor</p>
+        <p class="ref-cite">Baumeister, R. F., et al. (2020). Everyday thoughts in time. <em>Personality and Social Psychology Bulletin, 46</em>(12).<br>
+        Baumeister, R. F., Vohs, K. D., &amp; Oettingen, G. (2016). Pragmatic prospection. <em>Review of general psychology, 20</em>(1).</p>
+      </div>
+      </div>
+    </details>
+
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Du <em>Hinner!</em></span>
+    <ul class="footer-links">
+      <li><a href="/">Startsidan</a></li>
+      <li><a href="/#boken">Boken</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+      <li><a href="https://jonashjalmarblom.se" target="_blank" rel="noopener">jonashjalmarblom.se</a></li>
+    </ul>
+    <span>&copy; <span id="year"></span> Jonas Hjalmar Blom</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
