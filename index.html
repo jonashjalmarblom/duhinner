@@ -639,7 +639,7 @@
     .quiz-question {
       font-family: 'Nunito', sans-serif;
       font-weight: 900;
-      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
       color: var(--navy);
       margin-bottom: 1.75rem;
       line-height: 1.3;
@@ -826,10 +826,9 @@
   <section id="quiz">
     <div class="wrap">
       <div class="quiz-inner">
-        <p class="quiz-intro">Hur förhåller du dig till tiden? – testa dig själv.</p>
-        <div class="quiz-progress" id="quiz-progress"></div>
         <p class="quiz-question" id="quiz-question"></p>
         <div class="quiz-answers" id="quiz-answers"></div>
+        <div class="quiz-progress" id="quiz-progress"></div>
         <div class="quiz-feedback" id="quiz-feedback">
           <p class="quiz-aha" id="quiz-aha"></p>
           <details class="quiz-details" id="quiz-details">
@@ -840,7 +839,7 @@
         <div class="quiz-nav">
           <button class="btn btn-orange quiz-next" id="quiz-next">Nästa fråga →</button>
           <div class="quiz-finish" id="quiz-finish">
-            <p>Du har svarat på alla fem frågor.</p>
+            <p>Du har svarat på alla sex frågor.</p>
             <a href="#boken" class="btn btn-orange">Läs om boken ↓</a>
           </div>
         </div>
@@ -1066,6 +1065,13 @@
     // ── Quiz ──────────────────────────────────────────
     const quizData = [
       {
+        q: "Har du tid att göra det du vill?",
+        answers: [
+          { text: "Ja",  aha: "Grattis, du är en av få som upplever att tiden räcker till.", expanded: "Omkring 60 % av svenskarna upplever att tidsbrist tvingar dem från att avstå från saker de vill göra. Ändå har vi med fler helgdagar, mer semester och längre livslängd, mer tid än någonsin till vårt förfogande." },
+          { text: "Nej", aha: "Du är som majoriteten av svenskarna.", expanded: "Omkring 60 % av svenskarna upplever att tidsbrist tvingar dem från att avstå från saker de vill göra. Ändå har vi med fler helgdagar, mer semester och längre livslängd, mer tid än någonsin till vårt förfogande." }
+        ]
+      },
+      {
         q: "Gör du saker snabbare eller långsammare än de flesta?",
         answers: [
           { text: "Snabbare",    aha: "Du får troligen mer gjort — men också fler misstag.",     expanded: "Människor (och andra djur, exempelvis hasselbladssnoken!) har olika livshastighet och tempo. Den som är snabb får givetvis mer gjort, men har också en tendens att göra fler misstag. Den som är långsam är ofta lite mer flexibel i sitt tänkande och har högre kvalitet \u2013 även om den inte får lika mycket gjort." },
@@ -1102,7 +1108,8 @@
       }
     ];
 
-    const shuffled = [...quizData].sort(() => Math.random() - 0.5);
+    const [firstQ, ...restQ] = quizData;
+    const shuffled = [firstQ, ...restQ.sort(() => Math.random() - 0.5)];
     let quizCurrent = 0;
 
     const qEl         = document.getElementById('quiz-question');
