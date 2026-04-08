@@ -441,6 +441,39 @@
       margin-right: 0.25rem;
     }
 
+    /* Betygskortar för ljudboksplattformar */
+    .betyg-kort {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(28,31,76,0.10);
+      border-radius: var(--r);
+      padding: 0.65rem 1rem;
+      text-decoration: none;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .betyg-kort:hover {
+      box-shadow: 0 6px 20px rgba(28,31,76,0.12);
+      transform: translateY(-2px);
+    }
+    .betyg-plattform {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .betyg-stars { color: var(--orange); font-size: 0.95rem; letter-spacing: 0.06em; }
+    .betyg-varde {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .betyg-antal { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
+
     /* =====================================================
        FÖRELÄSNING
     ===================================================== */
@@ -917,13 +950,35 @@
           <span class="kop-label">Köp boken:</span>
           <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="btn btn-orange" target="_blank" rel="noopener">Bokus</a>
           <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="btn btn-navy" target="_blank" rel="noopener">Adlibris</a>
-          <a href="https://www.akademibokhandeln.se/bok/du-hinner-ta-makten-over-din-tid/9789180067096" class="btn btn-cream" target="_blank" rel="noopener">Akademibokhandeln</a>
         </div>
         <div class="kop-knappar">
           <span class="kop-label">Lyssna:</span>
           <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="btn btn-cream" target="_blank" rel="noopener">Bookbeat</a>
           <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-över-din-tid-9557812" class="btn btn-orange" target="_blank" rel="noopener">Storytel</a>
-          <a href="https://nextory.com/se/book/du-hinner-ta-makten-over-din-tid-4388484" class="btn btn-navy" target="_blank" rel="noopener">Nextory</a>
+        </div>
+        <!-- Betyg: uppdatera manuellt vid behov. Hämtade 2026-04-08. -->
+        <div class="kop-knappar" style="align-items: flex-start;">
+          <span class="kop-label" style="padding-top: 0.7rem;">Betyg:</span>
+          <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="betyg-kort" target="_blank" rel="noopener" aria-label="Adlibris: 4,8 av 5 baserat på 4 röster">
+            <span class="betyg-plattform">Adlibris</span>
+            <span class="betyg-stars">★★★★★</span>
+            <span class="betyg-varde">4,8 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 4 röster</span></span>
+          </a>
+          <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="betyg-kort" target="_blank" rel="noopener" aria-label="Bokus: 4 av 5 baserat på 3 röster">
+            <span class="betyg-plattform">Bokus</span>
+            <span class="betyg-stars">★★★★☆</span>
+            <span class="betyg-varde">4 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 3 röster</span></span>
+          </a>
+          <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="betyg-kort" target="_blank" rel="noopener" aria-label="BookBeat: 4,3 av 5 baserat på 280 betyg">
+            <span class="betyg-plattform">BookBeat</span>
+            <span class="betyg-stars">★★★★☆</span>
+            <span class="betyg-varde">4,3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 280 betyg</span></span>
+          </a>
+          <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-%C3%B6ver-din-tid-9557812" class="betyg-kort" target="_blank" rel="noopener" aria-label="Storytel: 4,3 av 5 baserat på 61 betyg">
+            <span class="betyg-plattform">Storytel</span>
+            <span class="betyg-stars">★★★★☆</span>
+            <span class="betyg-varde">4,3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 61 betyg</span></span>
+          </a>
         </div>
       </div>
 
@@ -994,6 +1049,15 @@
           <div class="forelasning-punkt">
             <span class="punkt-dot"></span>
             <span>Konkreta kunskaper att använda direkt efter föreläsningen</span>
+          </div>
+          <div class="recension" style="margin-top: 1.5rem;">
+            <blockquote>
+              "Det var otroligt värdefullt för oss att få öka vår förståelse för vårt förhållande till tid,
+              och att dessutom få med oss några verktyg till vår egen tidsmaskin.
+              <br><br>
+              Stort tack Jonas!"
+            </blockquote>
+            <cite>Patric Broman, New Wave Group</cite>
           </div>
         </div>
 
