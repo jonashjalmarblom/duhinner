@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Du Hinner! – Ta makten över din tid</title>
-  <meta name="description" content="Du har mer tid än du tror. Jonas Hjalmar Blom – psykolog, forskare och föreläsare – om hur vi uppfattar, använder och värderar vår tid." />
-  <meta property="og:title" content="Du Hinner! – Ta makten över din tid" />
-  <meta property="og:description" content="Du har mer tid än du tror. En bok och föreläsning av Jonas Hjalmar Blom." />
+  <title>Du Hinner! – Take Control of Your Time</title>
+  <meta name="description" content="You have more time than you think. Jonas Hjalmar Blom – psychologist, researcher, and lecturer – on how we perceive, use, and value our time." />
+  <meta property="og:title" content="Du Hinner! – Take Control of Your Time" />
+  <meta property="og:description" content="You have more time than you think. A book and lecture by Jonas Hjalmar Blom." />
   <meta property="og:image" content="https://duhinner.se/images/du-hinner.jpg" />
-  <meta property="og:url" content="https://duhinner.se" />
-  <link rel="canonical" href="https://duhinner.se" />
+  <meta property="og:url" content="https://duhinner.se/en/" />
+  <link rel="canonical" href="https://duhinner.se/en/" />
   <link rel="alternate" hreflang="sv" href="https://duhinner.se/" />
   <link rel="alternate" hreflang="en" href="https://duhinner.se/en/" />
   <link rel="alternate" hreflang="x-default" href="https://duhinner.se/" />
@@ -37,13 +37,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* =====================================================
-       VARIABLER & RESET
-       Färger hämtade från bokomslaget:
-       --mint   = bakgrundens ljusgröna
-       --orange = timglasets orange-röda
-       --navy   = bokens mörka textfärg
-    ===================================================== */
     :root {
       --mint:        #E0EDCC;
       --mint-dark:   #cde0b4;
@@ -96,7 +89,7 @@
       margin-bottom: 0.6rem;
     }
 
-    /* ── Knappar ─────────────────────────────────────── */
+    /* ── Buttons ─────────────────────────────────────── */
     .btn {
       display: inline-block;
       padding: 0.8rem 2rem;
@@ -239,7 +232,6 @@
       overflow: hidden;
     }
 
-    /* Dekorativ timglasform i bakgrunden */
     #hero::before {
       content: '';
       position: absolute;
@@ -252,7 +244,6 @@
       pointer-events: none;
     }
 
-    /* Diagonal övergång till nästa sektion */
     #hero::after {
       content: '';
       position: absolute;
@@ -270,34 +261,6 @@
       gap: 2rem;
       padding-block: 5rem 7rem;
     }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title {
-      font-size: clamp(4rem, 10vw, 7.5rem);
-      line-height: 0.95;
-      color: var(--navy);
-      margin-bottom: 1.25rem;
-    }
-    .hero-title .orange { color: var(--orange); }
-
-    .hero-sub {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      color: var(--navy);
-      font-weight: 500;
-      max-width: 440px;
-      margin-bottom: 2.5rem;
-      line-height: 1.5;
-    }
-
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     .hero-book {
       position: relative;
@@ -341,7 +304,7 @@
     }
 
     /* =====================================================
-       OM MIG
+       ABOUT
     ===================================================== */
     #om-mig {
       background: var(--cream);
@@ -355,16 +318,6 @@
       align-items: center;
     }
 
-    .om-mig-bird {
-      border-radius: var(--r);
-      overflow: hidden;
-    }
-    .om-mig-bird img {
-      width: 100%;
-      display: block;
-      border-radius: var(--r);
-    }
-
     .om-mig-foto {
       width: 400px; height: 480px;
       background: var(--mint-dark);
@@ -374,25 +327,12 @@
     }
     .om-mig-foto img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* PLACEHOLDER: ersätt med riktig bild */
-    .foto-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-style: italic;
-      text-align: center;
-      padding: 1rem;
-    }
-
     .om-mig-text h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1.25rem; }
     .om-mig-text p { color: var(--text-muted); margin-bottom: 1rem; }
     .om-mig-text p:last-of-type { margin-bottom: 1.75rem; }
 
     /* =====================================================
-       BOKEN
+       THE BOOK
     ===================================================== */
     #boken {
       background: var(--mint);
@@ -433,7 +373,6 @@
     .boken-text p { margin-bottom: 1rem; }
     .boken-text p:last-of-type { margin-bottom: 0; }
 
-    /* Recensioner */
     .recensioner {
       margin-top: 2.5rem;
       display: flex;
@@ -465,7 +404,6 @@
       font-style: normal;
     }
 
-    /* Köpknappar */
     .kop-knappar {
       margin-top: 2.5rem;
       display: flex;
@@ -481,7 +419,6 @@
       margin-right: 0.25rem;
     }
 
-    /* Betygskortar för ljudboksplattformar */
     .betyg-kort {
       display: flex;
       flex-direction: column;
@@ -515,7 +452,7 @@
     .betyg-antal { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
 
     /* =====================================================
-       FÖRELÄSNING
+       LECTURES
     ===================================================== */
     #forelasning {
       background: var(--navy);
@@ -585,10 +522,10 @@
     }
 
     /* =====================================================
-       KONTAKT
+       CONTACT
     ===================================================== */
     #kontakt {
-      background: var(--mint) url('images/duhinner-sun.jpg') center 140% / cover no-repeat;
+      background: var(--mint) url('../images/duhinner-sun.jpg') center 140% / cover no-repeat;
       padding-block: 6rem 26vw;
     }
 
@@ -638,18 +575,6 @@
     .form-group textarea { resize: vertical; min-height: 130px; }
 
     .form-submit { margin-top: 0.5rem; width: 100%; padding: 1rem; font-size: 1.05rem; }
-
-    /* =====================================================
-       ILLUSTRATIONSBAND
-    ===================================================== */
-    .illus-band {
-      background: var(--mint);
-      line-height: 0;
-    }
-    .illus-band img {
-      width: 100%;
-      display: block;
-    }
 
     /* =====================================================
        FOOTER
@@ -711,12 +636,6 @@
       max-width: 640px;
       margin-inline: auto;
       text-align: center;
-    }
-
-    .quiz-intro {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
     }
 
     .quiz-progress {
@@ -841,7 +760,7 @@
     .quiz-finish p { color: var(--text-muted); }
 
     /* =====================================================
-       RESPONSIV
+       RESPONSIVE
     ===================================================== */
     @media (max-width: 720px) {
       .nav-links { display: none; }
@@ -861,8 +780,6 @@
         text-align: center;
         padding-block: 3.5rem 6rem;
       }
-      .hero-sub { margin-inline: auto; }
-      .hero-btns { justify-content: center; }
       .hero-book { display: flex; justify-content: center; }
       .hero-book img { transform: none; width: min(360px, 80vw); }
 
@@ -870,7 +787,6 @@
         grid-template-columns: 1fr;
       }
       .om-mig-foto { width: 100%; height: 220px; }
-      .om-mig-bird { display: none; }
 
       .boken-inner {
         grid-template-columns: 1fr;
@@ -893,14 +809,14 @@
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">Du Hinner!</a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#quiz">Testa dig</a></li>
-        <li><a href="#boken">Boken</a></li>
-        <li><a href="#om-mig">Författaren</a></li>
-        <li><a href="#forelasning">Föreläsningar</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="/en/" class="nav-lang" aria-label="English" title="English">🇬🇧</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#boken">The Book</a></li>
+        <li><a href="#om-mig">About</a></li>
+        <li><a href="#forelasning">Lectures</a></li>
+        <li><a href="#kontakt">Contact</a></li>
+        <li><a href="/" class="nav-lang" aria-label="Svenska" title="Svenska">🇸🇪</a></li>
       </ul>
-      <button class="nav-burger" id="nav-burger" aria-label="Öppna meny">
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -914,11 +830,11 @@
     <div class="wrap">
       <div class="hero-inner">
         <div class="hero-book">
-          <img src="images/du-hinner.jpg" alt="Bokomslag: Du Hinner! Ta makten över din tid av Jonas Hjalmar Blom" />
+          <img src="../images/du-hinner.jpg" alt="Book cover: Du Hinner! Take Control of Your Time by Jonas Hjalmar Blom" />
         </div>
         <p class="hero-announce">
-          <strong>Kommer snart</strong>
-          <span>Utkommer på kinesiska — Taiwan &amp; Hongkong, 2027</span>
+          <strong>Coming soon</strong>
+          <span>Published in Chinese — Taiwan &amp; Hong Kong, 2027</span>
         </p>
       </div>
     </div>
@@ -937,15 +853,15 @@
         <div class="quiz-feedback" id="quiz-feedback">
           <p class="quiz-aha" id="quiz-aha"></p>
           <details class="quiz-details" id="quiz-details">
-            <summary>Läs mer</summary>
+            <summary>Read more</summary>
             <p id="quiz-expanded"></p>
           </details>
         </div>
         <div class="quiz-nav">
-          <button class="btn btn-orange quiz-next" id="quiz-next">Nästa fråga →</button>
+          <button class="btn btn-orange quiz-next" id="quiz-next">Next question →</button>
           <div class="quiz-finish" id="quiz-finish">
-            <p>Du har svarat på alla sex frågor.</p>
-            <a href="#boken" class="btn btn-orange">Läs om boken ↓</a>
+            <p>You've answered all six questions.</p>
+            <a href="#boken" class="btn btn-orange">Read about the book ↓</a>
           </div>
         </div>
       </div>
@@ -954,24 +870,24 @@
 
 
   <!-- ================================================
-       BOKEN
+       THE BOOK
   ================================================= -->
   <section id="boken">
     <div class="wrap">
       <div class="boken-inner">
 
         <div class="boken-text">
-          <h2>Ta makten över din tid</h2>
+          <h2>Take Control of Your Time</h2>
 
           <p>
-            Trots att vi har mer ledig tid än någonsin upplever de flesta av oss att tiden aldrig riktigt räcker till.
-            Jonas Hjalmar Blom väver samman insikter från psykologi, neurovetenskap och ekonomi för att ge en
-            djupare förståelse för hur vi uppfattar, använder och värderar vår tid – och hur du kan ta makten över den.
+            Despite having more leisure time than ever, most of us feel like time is always running short.
+            Jonas Hjalmar Blom weaves together insights from psychology, neuroscience, and economics to offer
+            a deeper understanding of how we perceive, use, and value our time — and how you can take control of it.
           </p>
-<p><em>Det här är en bok för alla som någon gång tänkt tanken "jag hinner inte".</em></p>
+          <p><em>"This is a book for everyone who has ever thought 'I don't have time.'"</em></p>
           <p>
-            Du Hinner bygger på psykologisk forskning. Är du intresserad av att fördjupa dig i källorna
-            hittar du alla referenser <a href="https://duhinner.se/referenser" style="color: var(--orange); text-decoration: underline;">här</a>.
+            Du Hinner! is grounded in psychological research. If you'd like to explore the sources,
+            you can find all the references <a href="https://duhinner.se/referenser" style="color: var(--orange); text-decoration: underline;">here</a>.
           </p>
         </div>
 
@@ -979,91 +895,88 @@
           <div class="recensioner">
             <div class="recension">
               <blockquote>
-                "Det är en sådan bok som får en att stanna upp och fundera över vad man egentligen
-                gör med den tid som utgör ens liv. Efter att jag läst ut boken märker jag att jag
-                fått en skärpt blick för vardagens oväsentligheter och måsten som så lätt ställer
-                sig i vägen för det jag tycker är viktigt och värdefullt."
+                "It is the kind of book that makes you stop and reflect on what you are really doing with the time
+                that makes up your life. After finishing it, I notice I have developed a sharper eye for everyday
+                trivialities and obligations that so easily get in the way of what I find truly important and valuable."
               </blockquote>
               <cite>Forskning &amp; Framsteg</cite>
             </div>
             <div class="recension">
               <blockquote>
-                "Det är en lättillgänglig bok som är underhållande och med exempel som är lätta att ta till sig."
+                "An accessible book that is entertaining and filled with examples that are easy to grasp."
               </blockquote>
-              <cite>BTJ &nbsp;·&nbsp; Betyg 4/5</cite>
+              <cite>BTJ &nbsp;·&nbsp; Grade 4/5</cite>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Köpknappar – full bredd under texten och recensionerna -->
+      <!-- Buy/listen/ratings — activate when an English edition is available
       <div class="boken-knappar-rad">
         <div class="kop-knappar">
-          <span class="kop-label">Köp boken:</span>
+          <span class="kop-label">Buy the book:</span>
           <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="btn btn-orange" target="_blank" rel="noopener">Bokus</a>
           <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="btn btn-navy" target="_blank" rel="noopener">Adlibris</a>
         </div>
         <div class="kop-knappar">
-          <span class="kop-label">Lyssna:</span>
+          <span class="kop-label">Listen:</span>
           <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="btn btn-cream" target="_blank" rel="noopener">Bookbeat</a>
           <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-över-din-tid-9557812" class="btn btn-orange" target="_blank" rel="noopener">Storytel</a>
         </div>
-        <!-- Betyg: uppdatera manuellt vid behov. Hämtade 2026-04-08. -->
         <div class="kop-knappar" style="align-items: flex-start;">
-          <span class="kop-label" style="padding-top: 0.7rem;">Betyg:</span>
-          <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="betyg-kort" target="_blank" rel="noopener" aria-label="Adlibris: 4,8 av 5 baserat på 4 röster">
+          <span class="kop-label" style="padding-top: 0.7rem;">Ratings:</span>
+          <a href="https://www.adlibris.com/sv/bok/du-hinner-ta-makten-over-din-tid-9789180067096" class="betyg-kort" target="_blank" rel="noopener" aria-label="Adlibris: 4.8 out of 5 based on 4 ratings">
             <span class="betyg-plattform">Adlibris</span>
             <span class="betyg-stars">★★★★★</span>
-            <span class="betyg-varde">4,8 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 4 röster</span></span>
+            <span class="betyg-varde">4.8 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 4 ratings</span></span>
           </a>
-          <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="betyg-kort" target="_blank" rel="noopener" aria-label="Bokus: 4 av 5 baserat på 3 röster">
+          <a href="https://www.bokus.com/bok/9789180067096/du-hinner-ta-makten-over-din-tid/" class="betyg-kort" target="_blank" rel="noopener" aria-label="Bokus: 4 out of 5 based on 3 ratings">
             <span class="betyg-plattform">Bokus</span>
             <span class="betyg-stars">★★★★☆</span>
-            <span class="betyg-varde">4 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 3 röster</span></span>
+            <span class="betyg-varde">4 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 3 ratings</span></span>
           </a>
-          <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="betyg-kort" target="_blank" rel="noopener" aria-label="BookBeat: 4,3 av 5 baserat på 280 betyg">
+          <a href="https://www.bookbeat.com/se/book/du-hinner-1492011" class="betyg-kort" target="_blank" rel="noopener" aria-label="BookBeat: 4.3 out of 5 based on 280 ratings">
             <span class="betyg-plattform">BookBeat</span>
             <span class="betyg-stars">★★★★☆</span>
-            <span class="betyg-varde">4,3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 302 betyg</span></span>
+            <span class="betyg-varde">4.3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 280 ratings</span></span>
           </a>
-          <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-%C3%B6ver-din-tid-9557812" class="betyg-kort" target="_blank" rel="noopener" aria-label="Storytel: 4,3 av 5 baserat på 61 betyg">
+          <a href="https://www.storytel.com/se/books/du-hinner-ta-makten-%C3%B6ver-din-tid-9557812" class="betyg-kort" target="_blank" rel="noopener" aria-label="Storytel: 4.3 out of 5 based on 61 ratings">
             <span class="betyg-plattform">Storytel</span>
             <span class="betyg-stars">★★★★☆</span>
-            <span class="betyg-varde">4,3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 64 betyg</span></span>
+            <span class="betyg-varde">4.3 <span class="betyg-antal">/ 5 &nbsp;·&nbsp; 61 ratings</span></span>
           </a>
         </div>
       </div>
+      -->
 
     </div>
   </section>
 
 
   <!-- ================================================
-       OM MIG
+       ABOUT
   ================================================= -->
   <section id="om-mig">
     <div class="wrap">
       <div class="om-mig-inner">
 
         <div class="om-mig-foto">
-          <img src="images/jonas.jpg" alt="Jonas Hjalmar Blom" />
+          <img src="../images/jonas.jpg" alt="Jonas Hjalmar Blom" />
         </div>
 
         <div class="om-mig-text">
           <h2>Jonas Hjalmar Blom</h2>
           <p>
-            Jonas Hjalmar Blom är leg. psykolog, doktorand i psykologi och föreläsare med
-            intresse för hur vi förhåller oss till tid – och varför vi så sällan känner att
-            den räcker till.
+            Jonas Hjalmar Blom is a licensed psychologist, doctoral candidate in psychology, and lecturer
+            with a deep interest in how we relate to time — and why we so rarely feel like we have enough of it.
           </p>
           <p>
-            Genom forskning, böcker och föreläsningar hjälper han individer och organisationer
-            att förstå sin tidsupplevelse, tidskultur och att skapa mer meningsfulla sätt att
-            leva och arbeta.
+            Through research, books, and lectures, he helps individuals and organisations understand their
+            experience of time, their time culture, and how to create more meaningful ways of living and working.
           </p>
           <a href="https://jonashjalmarblom.se" class="btn btn-navy" target="_blank" rel="noopener">
-            Mer om Jonas →
+            More about Jonas →
           </a>
         </div>
 
@@ -1073,42 +986,42 @@
 
 
   <!-- ================================================
-       FÖRELÄSNING
+       LECTURES
   ================================================= -->
   <section id="forelasning">
     <div class="wrap">
       <div class="forelasning-inner">
 
         <div>
-          <h2>Föreläsningar</h2>
+          <h2>Lectures</h2>
           <p>
-            Vill du att dina kollegor och medarbetare ska få en ny syn på tidsbrist, få syn på
-            er tidskultur eller förstå vad det innebär att "ta sig tid"?
+            Would you like your colleagues and employees to gain a new perspective on time scarcity,
+            become aware of your organisation's time culture, or understand what it really means to "make time"?
             <br><br>
-            Jonas håller föreläsningar för företag, myndigheter och bibliotek – alltid forskningsbaserade, alltid engagerande.
+            Jonas gives lectures for companies, public agencies, and libraries — always research-based, always engaging.
           </p>
-          <a href="#kontakt" class="btn btn-orange">Kontakta Jonas</a>
+          <a href="#kontakt" class="btn btn-orange">Contact Jonas</a>
         </div>
 
         <div class="forelasning-kort">
           <div class="forelasning-punkt">
             <span class="punkt-dot"></span>
-            <span>Varför vi upplever tidsbrist trots att vi aldrig haft mer ledig tid</span>
+            <span>Why we experience time scarcity even though we've never had more leisure time</span>
           </div>
           <div class="forelasning-punkt">
             <span class="punkt-dot"></span>
-            <span>Tidsfällor vi alla går i – och hur vi tar oss ur dem</span>
+            <span>Time traps we all fall into — and how to get out of them</span>
           </div>
           <div class="forelasning-punkt">
             <span class="punkt-dot"></span>
-            <span>Konkreta kunskaper att använda direkt efter föreläsningen</span>
+            <span>Practical insights to put to use right after the lecture</span>
           </div>
           <div class="recension" style="margin-top: 1.5rem;">
             <blockquote>
-              "Det var otroligt värdefullt för oss att få öka vår förståelse för vårt förhållande till tid,
-              och att dessutom få med oss några verktyg till vår egen tidsmaskin.
+              "It was incredibly valuable for us to deepen our understanding of our relationship with time,
+              and to also take home some tools for our own time machine.
               <br><br>
-              Stort tack Jonas!"
+              Thank you so much, Jonas!"
             </blockquote>
             <cite>Patric Broman, New Wave Group</cite>
           </div>
@@ -1120,47 +1033,46 @@
 
 
   <!-- ================================================
-       KONTAKT
+       CONTACT
   ================================================= -->
   <section id="kontakt">
     <div class="wrap">
       <div class="kontakt-inner">
-        <h2>Kontakt</h2>
-        <p>Vill du boka en föreläsning, ställa en fråga eller bara säga hej?</p>
+        <h2>Contact</h2>
+        <p>Want to book a lecture, ask a question, or just say hello?</p>
 
-        <!-- PLACEHOLDER: ersätt YOUR_FORM_ID med ditt Formspree-ID -->
         <form action="https://formspree.io/f/xzdkypwp" method="POST">
+          <input type="hidden" name="language" value="English" />
 
           <div class="form-group">
-            <label for="namn">Namn</label>
-            <input type="text" id="namn" name="namn" placeholder="Ditt namn" required />
+            <label for="namn">Name</label>
+            <input type="text" id="namn" name="namn" placeholder="Your name" required />
           </div>
 
           <div class="form-group">
-            <label for="epost">E-post</label>
-            <input type="email" id="epost" name="epost" placeholder="din@epost.se" required />
+            <label for="epost">Email</label>
+            <input type="email" id="epost" name="epost" placeholder="your@email.com" required />
           </div>
 
           <div class="form-group">
-            <label for="amne">Ärende</label>
+            <label for="amne">Subject</label>
             <select id="amne" name="amne">
-              <option value="">Välj ärende…</option>
-              <option value="forelasning">Boka föreläsning</option>
-              <option value="boken">Fråga om boken</option>
-              <option value="media">Media / intervju</option>
-              <option value="annat">Annat</option>
+              <option value="">Choose a subject…</option>
+              <option value="forelasning">Book a lecture</option>
+              <option value="boken">Question about the book</option>
+              <option value="media">Media / interview</option>
+              <option value="annat">Other</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="meddelande">Meddelande</label>
-            <textarea id="meddelande" name="meddelande" placeholder="Berätta gärna mer…" required></textarea>
+            <label for="meddelande">Message</label>
+            <textarea id="meddelande" name="meddelande" placeholder="Tell me more…" required></textarea>
           </div>
 
-          <button type="submit" class="btn btn-orange form-submit">Skicka meddelande</button>
+          <button type="submit" class="btn btn-orange form-submit">Send message</button>
 
         </form>
-        <!-- /PLACEHOLDER -->
 
       </div>
     </div>
@@ -1175,11 +1087,11 @@
       <div class="footer-inner">
         <span class="footer-logo">Du Hinner!</span>
         <ul class="footer-links">
-          <li><a href="#boken">Boken</a></li>
-          <li><a href="#om-mig">Författaren</a></li>
-          <li><a href="#forelasning">Föreläsningar</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="referenser/">Referenser</a></li>
+          <li><a href="#boken">The Book</a></li>
+          <li><a href="#om-mig">About</a></li>
+          <li><a href="#forelasning">Lectures</a></li>
+          <li><a href="#kontakt">Contact</a></li>
+          <li><a href="/referenser/">References</a></li>
           <li><a href="https://jonashjalmarblom.se" target="_blank" rel="noopener">jonashjalmarblom.se</a></li>
         </ul>
         <span>&copy; <span id="year"></span> Jonas Hjalmar Blom</span>
@@ -1194,45 +1106,45 @@
     // ── Quiz ──────────────────────────────────────────
     const quizData = [
       {
-        q: "Har du tid att göra det du vill?",
+        q: "Do you have time to do what you want?",
         answers: [
-          { text: "Ja",  aha: "Grattis, du är en av få som upplever att tiden räcker till.", expanded: "Omkring 60 % av svenskarna upplever att tidsbrist tvingar dem från att avstå från saker de vill göra. Ändå har vi med fler helgdagar, mer semester och längre livslängd, mer tid än någonsin till vårt förfogande." },
-          { text: "Nej", aha: "Du är som majoriteten av svenskarna.", expanded: "Omkring 60 % av svenskarna upplever att tidsbrist tvingar dem från att avstå från saker de vill göra. Ändå har vi med fler helgdagar, mer semester och längre livslängd, mer tid än någonsin till vårt förfogande." }
+          { text: "Yes", aha: "Congratulations — you're one of the few who feel they have enough time.", expanded: "Around 60 % of people experience time scarcity that forces them to give up things they want to do. Yet, with more public holidays, more vacation time, and longer lifespans, we have more free time at our disposal than ever before." },
+          { text: "No",  aha: "You're in the majority.", expanded: "Around 60 % of people experience time scarcity that forces them to give up things they want to do. Yet, with more public holidays, more vacation time, and longer lifespans, we have more free time at our disposal than ever before." }
         ]
       },
       {
-        q: "Gör du saker snabbare eller långsammare än de flesta?",
+        q: "Do you tend to do things faster or slower than most people?",
         answers: [
-          { text: "Snabbare",    aha: "Du får troligen mer gjort — men också fler misstag.",     expanded: "Människor (och andra djur, exempelvis hasselbladssnoken!) har olika livshastighet och tempo. Den som är snabb får givetvis mer gjort, men har också en tendens att göra fler misstag. Den som är långsam är ofta lite mer flexibel i sitt tänkande och har högre kvalitet \u2013 även om den inte får lika mycket gjort." },
-          { text: "Långsammare", aha: "Du är troligen noggrannare — men kanske mindre produktiv.", expanded: "Människor (och andra djur, exempelvis hasselbladssnoken!) har olika livshastighet och tempo. Den som är snabb får givetvis mer gjort, men har också en tendens att göra fler misstag. Den som är långsam är ofta lite mer flexibel i sitt tänkande och har högre kvalitet \u2013 även om den inte får lika mycket gjort." }
+          { text: "Faster", aha: "You probably get more done — but also make more mistakes.", expanded: "People (and other animals — the hazel dormouse, for example!) have different life speeds and tempos. Those who are fast naturally get more done, but also tend to make more mistakes. Those who are slower are often more flexible in their thinking and produce higher quality work — even if they accomplish less overall." },
+          { text: "Slower", aha: "You're probably more thorough — but perhaps less productive.", expanded: "People (and other animals — the hazel dormouse, for example!) have different life speeds and tempos. Those who are fast naturally get more done, but also tend to make more mistakes. Those who are slower are often more flexible in their thinking and produce higher quality work — even if they accomplish less overall." }
         ]
       },
       {
-        q: "Vilket påstående tycker du stämmer bäst?",
+        q: "Which statement resonates most with you?",
         answers: [
-          { text: "Vi närmar oss helgen", aha: "Du verkar tänka på tid med en \u201drörligt-jag-metafor\u201d",  expanded: "Människor tänker på tid med olika metaforer. Exempelvis talar vi om att vi jagar tiden som om den vore ett villebråd, att vi vill spara tid som om den vore pengar, eller att tiden rör sig emot oss som om den vore ett rusande tåg. Sättet vi talar om tid på, påverkar också vår känsla av kontroll över tiden." },
-          { text: "Helgen närmar sig",    aha: "Du verkar tänka på tid med en \u201drörlig-tid-metafor\u201d", expanded: "Människor tänker på tid med olika metaforer. Exempelvis talar vi om att vi jagar tiden som om den vore ett villebråd, att vi vill spara tid som om den vore pengar, eller att tiden rör sig emot oss som om den vore ett rusande tåg. Sättet vi talar om tid på, påverkar också vår känsla av kontroll över tiden." }
+          { text: "We are approaching the weekend", aha: "You seem to think about time with a "moving-ego metaphor".",  expanded: "People think about time using different metaphors. We talk about chasing time as if it were prey, saving time as if it were money, or time rushing toward us like a speeding train. The way we talk about time also shapes our sense of control over it." },
+          { text: "The weekend is approaching us",    aha: "You seem to think about time with a "moving-time metaphor".", expanded: "People think about time using different metaphors. We talk about chasing time as if it were prey, saving time as if it were money, or time rushing toward us like a speeding train. The way we talk about time also shapes our sense of control over it." }
         ]
       },
       {
-        q: "När brukar du oftast äta lunch?",
+        q: "When do you usually eat lunch?",
         answers: [
-          { text: "När jag känner att jag är hungrig",       aha: "Du verkar leva efter händelsetid \u2013 du låter känslan avgöra när det är rätt tid att göra något.", expanded: "Personer och kulturer har en dragning åt antingen klocktid eller händelsetid. Antingen låter man klockan styra när det är dags att vakna, äta, ha möte och sluta arbeta, eller så vaknar man när man är utsövd, äter när man är hungrig, har möte när alla är på plats och slutar arbeta när man känner sig färdig. Båda systemen har sina för- och nackdelar." },
-          { text: "När jag har planerat in den i kalendern", aha: "Du verkar leva efter klocktid \u2013 du låter klockan avgöra när det är rätt tid att göra något.",       expanded: "Personer och kulturer har en dragning åt antingen klocktid eller händelsetid. Antingen låter man klockan styra när det är dags att vakna, äta, ha möte och sluta arbeta, eller så vaknar man när man är utsövd, äter när man är hungrig, har möte när alla är på plats och slutar arbeta när man känner sig färdig. Båda systemen har sina för- och nackdelar." }
+          { text: "When I feel hungry",                   aha: "You seem to live by event time — you let the feeling decide when it's the right time to do something.", expanded: "People and cultures tend toward either clock time or event time. Either you let the clock dictate when to wake up, eat, meet, and stop working — or you wake when you're rested, eat when you're hungry, meet when everyone's present, and stop when you feel done. Both systems have their advantages and disadvantages." },
+          { text: "When I've scheduled it in my calendar", aha: "You seem to live by clock time — you let the clock decide when it's the right time to do something.",   expanded: "People and cultures tend toward either clock time or event time. Either you let the clock dictate when to wake up, eat, meet, and stop working — or you wake when you're rested, eat when you're hungry, meet when everyone's present, and stop when you feel done. Both systems have their advantages and disadvantages." }
         ]
       },
       {
-        q: "Tänker du någonsin på ditt framtida jag?",
+        q: "Do you ever think about your future self?",
         answers: [
-          { text: "Ja",  aha: "Du verkar känna en koppling mellan ditt nutida och framtida jag.",                                                            expanded: "För de flesta människor är det framtida jaget en främling de ännu inte lärt känna, det är knappast helt naturligt för oss att tänka tiotals år in i framtiden. Men den som funderar på den avlägsna framtiden kan få en tydligare riktning, ett syfte och större känsla av mening i livet." },
-          { text: "Nej", aha: "Du verkar vara mycket i nuet och inte tänka så mycket på den avlägsna framtiden.", expanded: "För de flesta människor är det framtida jaget en främling de ännu inte lärt känna, det är knappast helt naturligt för oss att tänka tiotals år in i framtiden. Men den som funderar på den avlägsna framtiden kan få en tydligare riktning, ett syfte och större känsla av mening i livet." }
+          { text: "Yes", aha: "You seem to feel a connection between your present and future self.", expanded: "For most people, the future self is a stranger they haven't yet met — it's not entirely natural for us to think decades ahead. But those who reflect on the distant future can gain a clearer direction, a sense of purpose, and a greater feeling of meaning in life." },
+          { text: "No",  aha: "You seem very present-focused and don't think much about the distant future.", expanded: "For most people, the future self is a stranger they haven't yet met — it's not entirely natural for us to think decades ahead. But those who reflect on the distant future can gain a clearer direction, a sense of purpose, and a greater feeling of meaning in life." }
         ]
       },
       {
-        q: "När du har akut tidsbrist, vad brukar du då främst fokusera på?",
+        q: "When you're in a time crunch, what do you tend to focus on?",
         answers: [
-          { text: "Det som är brådskande", aha: "Inte så konstigt \u2013 det är vanligt att prioritera det som är allra mest akut när vi har stor tidsbrist.",    expanded: "Vid akut tidsbrist är det svårt att skilja mellan det som är viktigt eller det som bara är brådskande. Många kör ner huvudet och jobbar på, men glömmer att fråga sig om det de gör i all hast har ett värde eller ej." },
-          { text: "Det som är viktigt",    aha: "Du verkar kunna hålla huvudet kallt även när det är brist på tid.", expanded: "Vid akut tidsbrist är det svårt att skilja mellan det som är viktigt eller det som bara är brådskande. Många kör ner huvudet och jobbar på, men glömmer att fråga sig om det de gör i all hast har ett värde eller ej." }
+          { text: "What's urgent",    aha: "Not surprising — it's common to prioritise what's most pressing when time is short.", expanded: "In an acute time crunch, it's difficult to distinguish between what's important and what's merely urgent. Many people put their heads down and push through, but forget to ask themselves whether what they're rushing to do is actually worthwhile." },
+          { text: "What's important", aha: "You seem to keep a cool head even when time is short.", expanded: "In an acute time crunch, it's difficult to distinguish between what's important and what's merely urgent. Many people put their heads down and push through, but forget to ask themselves whether what they're rushing to do is actually worthwhile." }
         ]
       }
     ];
@@ -1307,7 +1219,7 @@
 
     renderQuestion();
 
-    // Hamburgermeny
+    // Hamburger menu
     const burger = document.getElementById('nav-burger');
     const navLinks = document.getElementById('nav-links');
     burger.addEventListener('click', () => navLinks.classList.toggle('open'));
