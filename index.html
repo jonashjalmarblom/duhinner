@@ -346,6 +346,16 @@
     #chatbot {
       background: var(--cream);
       padding-block: 6rem;
+      position: relative;
+    }
+
+    #chatbot::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 60px;
+      background: var(--mint);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
     }
 
     .chatbot-inner {
